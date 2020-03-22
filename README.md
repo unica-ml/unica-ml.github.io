@@ -1,37 +1,64 @@
-## Welcome to GitHub Pages
+## Machine Learning 
+**Academic Year 2019-2020**
 
-You can use the [editor on GitHub](https://github.com/unica-ml/unica-ml.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+**Instructors:** Prof. Fabio Roli, Dr. Battista Biggio
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**MSc in Computer Engineering, Cybersecurity and Artificial Intelligence**
 
-### Markdown
+**MSc in Electronic Engineering**
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+**PhD programme in Electronic and Computer Engineering**
 
-```markdown
-Syntax highlighted code block
+**News:** The course mailing list is active. To subscribe, send an email to 
+ml-unica+subscribe (at) googlegroups.com 
 
-# Header 1
-## Header 2
-### Header 3
+**Course objectives and outcome**
 
-- Bulleted
-- List
+_Objectives_
 
-1. Numbered
-2. List
+The objective of this course is to provide students 
+with the fundamental elements of machine learning and its applications 
+to pattern recognition. The main concepts and methods of machine 
+learning and statistical pattern recognition are presented, 
+as well as basic methods to design and evaluate the performance 
+of a pattern recognition system.
+ 
+_Outcome_
 
-**Bold** and _Italic_ and `Code` text
+An understanding of fundamental concepts and methods of machine learning, 
+statistical pattern recognition and its applications. 
+An ability to analyse and evaluate simple algorithms for pattern classification. 
+An ability to design simple algorithms for pattern classification, 
+code them with Python programming language and test them with benchmark data sets.
 
-[Link](url) and ![Image](src)
-```
+**Class schedule**
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Tuesday, h. 15:00-18:00,  IIB classroom 
 
-### Jekyll Themes
+Wednesday, h. 15:00-18:00, IID classroom
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/unica-ml/unica-ml.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+**Course Outline (6 CFU)**
+1. Introduction (2 hours)
+2. Bayesian decision theory (6 hours)
+3. Introduction to pattern classification methods (2 hours)
+4. Parametric methods (4 hours)
+5. Non parametric methods and decision trees (4 hours)
+6. Linear discriminant functions and support vector machines (4 hours)
+7. Artificial neural networks (4 hours)
+8. Performance evaluation (2 hours)
+9. Clustering Methods (2 hours)
+10. Adversarial machine learning (2 hours)
+11. Exercises (12 hours)
+12. Python Programming language and computer exercises (16 hours)
+ 
+_Course grading and material (6 CFU)_
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- Home computer-exercise assignment + Oral examination
+    - You can do intermediate assessments instead of the oral examination
+    - You can do intermediate assessments instead of the 
+    home computer-exercise assignment
+    - You can do the oral examination only after the computer exercise
+    - Teams of 3 students maximum can do the home computer exercise
+- Grading policy = Computer exercise (10/30) + Oral examination (20/30)
+- Reference book: Pattern Classification (2^ edition), 
+R. O. Duda, P. E. Hart, e D. G. Stork, John Wiley & Sons, 2000
