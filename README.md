@@ -9,7 +9,7 @@
 
 **PhD programme in Electronic and Computer Engineering**
 
-**GitHub repository for course material:** https://github.com/unica-ml/ml 
+**GitHub repository for course material:** [https://github.com/unica-ml/ml](https://github.com/unica-ml/ml)
 
 **Mailing list:** The course mailing list is active. To subscribe, send an email to 
 ml-unica+subscribe (at) googlegroups.com 
