@@ -1,0 +1,858 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Machine Learning - Lab02 &mdash; Machine Learning  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script src="../static/jquery.js"></script>
+        <script src="../static/underscore.js"></script>
+        <script src="../static/doctools.js"></script>
+        <script src="../static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="1. Machine Learning - Lab01" href="lab01.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Machine Learning
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Laboratory</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lab01.html">1. Machine Learning - Lab01</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-1">1.1. <strong>Exercise 1</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab01.html#Exercise-2">1.1.1. <strong>Exercise 2</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab01.html#Exercise-3">1.1.2. <strong>Exercise 3</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab01.html#Exercise-4">1.1.3. <strong>Exercise 4</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Machine Learning - Lab02</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-1">2.1. <strong>Exercise 1</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-2">2.2. <strong>Exercise 2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-3">2.3. <strong>Exercise 3</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-4">2.4. Exercise 4</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Machine Learning</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>Machine Learning - Lab02</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Machine-Learning---Lab02">
+<h1><span class="section-number">2. </span>Machine Learning - Lab02<a class="headerlink" href="#Machine-Learning---Lab02" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Exercise-1">
+<h2><span class="section-number">2.1. </span><strong>Exercise 1</strong><a class="headerlink" href="#Exercise-1" title="Permalink to this headline">¶</a></h2>
+<p>Implement the function <code class="docutils literal notranslate"><span class="pre">make_gaussian_dataset(n,</span> <span class="pre">mu,</span> <span class="pre">sigma)</span></code>  that generates a k-class Gaussian dataset in a d-dimensional space, being</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> a vector of k elements containing each the number of samples for each class;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mu</span></code> a matrix with <code class="docutils literal notranslate"><span class="pre">shape=(k,d)</span></code> in which each row contains the mean vector $:nbsphinx-math:<cite>mu</cite><em>k = (:nbsphinx-math:`mu`</em>{k1}, <span class="math">\ldots</span>, <span class="math">\mu</span>_{kd}) $ for each class;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sigma</span></code> a matrix with <code class="docutils literal notranslate"><span class="pre">shape=(k,d)</span></code> in which each row contains the standard deviation <span class="math notranslate nohighlight">\(\sigma_k = (\sigma_{k1}, \ldots, \sigma_{kd})\)</span> (for each dimension) for each class.</p></li>
+</ul>
+<p>In practice, samples for class <span class="math notranslate nohighlight">\(k\)</span> will be sampled from: <span class="math notranslate nohighlight">\(x_k \sim \mathcal N(\mu_k, \Sigma_k)\)</span>, where <span class="math notranslate nohighlight">\(\Sigma_k\)</span> is a diagonal covariance matrix:</p>
+<p><span class="math notranslate nohighlight">\(\Sigma_k = \begin{bmatrix} \sigma^2_{k1} &amp; 0 &amp; \ldots &amp; 0 \\ 0 &amp; \sigma^2_{k2} &amp; \ldots &amp; 0 \\ 0 &amp; 0 &amp; \ldots &amp; 0 \\ 0 &amp; 0 &amp; \ldots &amp; \sigma^2_{kd} \end{bmatrix}\)</span> .</p>
+<p>The function returns the corresponding feature matrix <code class="docutils literal notranslate"><span class="pre">x</span></code> and labels <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p><strong>Hints:</strong> - Use <code class="docutils literal notranslate"><span class="pre">np.random.randn(...)</span></code> to generate random numbers from a standard Gaussian distribution, with zero mean and unit variance, and then transform them to have a different mean and variance (repeat once per class). - Recall that, if <span class="math notranslate nohighlight">\(z \sim \mathcal N(0,1)\)</span>, then <span class="math notranslate nohighlight">\(x = \sigma z + \mu \sim \mathcal N(\mu, \sigma^2)\)</span>. Please delve deeper into transformations of (Gaussian) random variables if you are not familiar with this notation. - Use <code class="docutils literal notranslate"><span class="pre">np.ones(...)</span></code> and/or
+<code class="docutils literal notranslate"><span class="pre">np.zeros(...)</span></code> for class labels.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>import numpy as np
+
+
+def make_gaussian_datasets(n, mu, sigma):
+    &#39;&#39;&#39;Generating a d-dimensional Gaussian dataset with k classes.&#39;&#39;&#39;
+    n = np.array(n)  # cast to ndarray
+    mu = np.array(mu)
+    sigma = np.array(sigma)
+
+    n_classes = mu.shape[0]  # n.size or n.shape[0]
+    n_features = mu.shape[1]
+    n_samples = np.sum(n)
+
+    X = np.zeros(shape=(n_samples, n_features))
+    Y = np.zeros(shape=(n_samples,))
+
+    start_idx = 0
+    for k in range(n_classes):  # loop over classes
+        z = np.random.randn(n[k], n_features)  # sampling from N(0,1)
+        xk =  z*sigma[k, :] + mu[k, :]  # transform z to sample from N(mu,sigma)
+        yk = k * np.ones(shape=(n[k],))  # generate nk labels equal to k
+        X[start_idx:start_idx+n[k], :] = xk
+        Y[start_idx:start_idx+n[k]] = yk
+        start_idx += n[k]
+    return X, Y
+
+n = [100, 100, 100]  # number of points in each class
+mu = [ [-5, -5], [+5, +5], [+5, -5] ]
+sigma = [[2, 2], [2, 2], [2, 2]]
+
+X, Y = make_gaussian_datasets(n, mu, sigma)
+
+# print(X)
+# print(Y)
+
+# re-estimate mean and standard deviation from the generated data
+for k in range(np.unique(Y).size):
+    print(&#39;mean of class &#39; + str(k) +&#39;: &#39;, X[Y==k,:].mean(axis=0))
+    print(&#39;std of class &#39; + str(k) +&#39;: &#39;, X[Y==k,:].std(axis=0))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+mean of class 0:  [-4.91495327 -5.15286877]
+std of class 0:  [1.97909043 2.05785344]
+mean of class 1:  [5.09724812 4.89082382]
+std of class 1:  [1.96985341 1.99979895]
+mean of class 2:  [ 4.66170326 -5.02592252]
+std of class 2:  [1.94808133 2.11185562]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Exercise-2">
+<h2><span class="section-number">2.2. </span><strong>Exercise 2</strong><a class="headerlink" href="#Exercise-2" title="Permalink to this headline">¶</a></h2>
+<p>Implement the function <code class="docutils literal notranslate"><span class="pre">plot_dataset(X,Y)</span></code> to scatter the data generated in the previous exercise on a bi-dimensional feature space.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>import matplotlib.pyplot as plt
+
+
+def plot_dataset(X,Y):
+    colors = [&#39;r&#39;, &#39;b&#39;, &#39;g&#39;, &#39;k&#39;, &#39;c&#39;, &#39;m&#39;, &#39;y&#39;]
+
+    n_classes = np.unique(Y).size
+
+    for k in range(n_classes):
+        xk = X[Y==k, :]
+        plt.scatter(xk[:, 0], xk[:, 1], c=colors[k], label=&#39;class &#39; + str(k))
+
+    plt.legend()
+    plt.xlabel(&#39;x0&#39;)
+    plt.ylabel(&#39;x1&#39;)
+    plt.title(&#39;Gaussian data&#39;)
+
+
+n = [100, 100, 100, 100]  # number of points in each class
+mu = [ [-5, -5], [+5, +5], [+5, -5], [-5, +5] ]
+sigma = [[1, 1], [1, 1], [1, 1], [1, 1]]
+X, Y = make_gaussian_datasets(n, mu, sigma)
+plot_dataset(X,Y)
+plt.axis(&#39;equal&#39;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab02_4_0.png" src="../images/tutorials_lab02_4_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Exercise-3">
+<h2><span class="section-number">2.3. </span><strong>Exercise 3</strong><a class="headerlink" href="#Exercise-3" title="Permalink to this headline">¶</a></h2>
+<p>Implement a nearest-mean classifier, which assigns data samples <code class="docutils literal notranslate"><span class="pre">x</span></code> to the class with the closest centroid.</p>
+<ul class="simple">
+<li><p>Implement the method <code class="docutils literal notranslate"><span class="pre">fit(x,y)</span></code> that estimates the centroids (one per class) from the training data.</p></li>
+<li><p>Implement the method <code class="docutils literal notranslate"><span class="pre">predict(x)</span></code> that computes the predicted labels for each sample in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+<p>See also <a class="reference external" href="https://en.wikipedia.org/wiki/Nearest_centroid_classifier">https://en.wikipedia.org/wiki/Nearest_centroid_classifier</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>from sklearn.metrics import pairwise_distances
+
+
+def fit(X, Y):
+    &quot;&quot;&quot;Estimate the training data centroids.&quot;&quot;&quot;
+    n_classes = np.unique(Y).size
+    n_features = X.shape[1]
+    centroids = np.zeros(shape=(n_classes, n_features))
+    for k in range(n_classes):
+        centroids[k, :] = np.mean(X[Y==k, :], axis=0)
+    return centroids
+
+
+def predict(X, centroids):
+    &quot;&quot;&quot;Predict labels for samples in X.
+    Each sample is assigned to the class of the closest centroid.&quot;&quot;&quot;
+    # compute distance matrix of X vs centroids
+    d = pairwise_distances(X, centroids)
+    y_pred = np.argmin(d ,axis=1)  # take index of minimum per row
+    return y_pred
+
+
+n = [100, 100, 100, 100]  # number of points in each class
+mu = [ [-5, -5], [+5, +5], [+5, -5], [-5, +5] ]
+sigma = [[1, 1], [1, 1], [1, 1], [1, 1]]
+X, Y = make_gaussian_datasets(n, mu, sigma)
+
+# fit the classifier (i.e., estimate the training data centroids)
+centroids = fit(X, Y)
+
+# plot dataset and centroids
+plot_dataset(X,Y)
+plt.plot(centroids[:, 0], centroids[:, 1], &#39;wx&#39;)
+plt.axis(&#39;equal&#39;)
+plt.show()
+
+# compute predictions on X using the estimated centroids
+y_pred = predict(X, centroids)
+
+# accuracy: the fraction of samples that are correctly predicted
+acc = (Y == y_pred).mean()
+print(&#39;Accuracy on training data: &#39;, acc)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab02_6_0.png" src="../images/tutorials_lab02_6_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Accuracy on training data:  1.0
+</pre></div></div>
+</div>
+<p>Now, let’s create a consistent object that contains both functions with a Python class.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>class CNearestMeanClassifier:
+    &quot;&quot;&quot;Class implementing a nearest mean classifier&quot;&quot;&quot;
+
+    def __init__(self):
+        self._centroids = None
+        return
+
+    @property
+    def centroids(self):
+        return self._centroids
+
+    def fit(self, X, Y):
+        n_classes = np.unique(Y).size
+        n_features = X.shape[1]
+        self._centroids = np.zeros(shape=(n_classes, n_features))
+        for k in range(n_classes):
+            self._centroids[k, :] = np.mean(X[Y==k, :], axis=0)
+        return self
+
+    def predict(self, X):
+        d = pairwise_distances(X, self._centroids)
+        y_pred = np.argmin(d ,axis=1)
+        return y_pred
+
+
+n = [100, 100, 100, 100]  # number of points in each class
+mu = [ [-5, -5], [+5, +5], [+5, -5], [-5, +5] ]
+sigma = [[1, 1], [1, 1], [1, 1], [1, 1]]
+X, Y = make_gaussian_datasets(n, mu, sigma)
+plot_dataset(X,Y)
+
+clf = CNearestMeanClassifier()
+clf.fit(X, Y)
+
+plt.plot(clf.centroids[:, 0], clf.centroids[:, 1], &#39;wx&#39;)
+plt.show()
+
+y_pred = clf.predict(X)
+
+acc = (Y == y_pred).mean()
+print(&#39;Accuracy on training data: &#39;, acc)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab02_8_0.png" src="../images/tutorials_lab02_8_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Accuracy on training data:  1.0
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Exercise-4">
+<h2><span class="section-number">2.4. </span>Exercise 4<a class="headerlink" href="#Exercise-4" title="Permalink to this headline">¶</a></h2>
+<p>Visualize the decision regions of the NearestMeanClassifier, as well as of other sklearn classifiers.</p>
+<p>See, e.g., <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html">https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>from matplotlib.colors import ListedColormap
+
+
+def plot_decision_regions(x, y, classifier, resolution=0.02):
+    # setup marker generator and color map
+    colors = (&#39;red&#39;, &#39;blue&#39;, &#39;lightgreen&#39;, &#39;black&#39;, &#39;gray&#39;, &#39;cyan&#39;)
+    cmap = ListedColormap(colors[:len(np.unique(y))])
+
+    # plot the decision surface
+    x1_min, x1_max = x[:, 0].min() - 1, x[:, 0].max() + 1
+    x2_min, x2_max = x[:, 1].min() - 1, x[:, 1].max() + 1
+    xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution),
+                           np.arange(x2_min, x2_max, resolution))
+    Z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
+    Z = Z.reshape(xx1.shape)
+    plt.contourf(xx1, xx2, Z, alpha=0.4, cmap=cmap)
+
+    plot_dataset(x,y)
+    plt.xlim(xx1.min(), xx1.max())
+    plt.ylim(xx2.min(), xx2.max())
+    return
+
+plot_decision_regions(X, Y, clf)
+plt.show()
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab02_10_0.png" src="../images/tutorials_lab02_10_0.png" />
+</div>
+</div>
+<p>Let’s do it for some sklearn classifiers too.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>from sklearn.neural_network import MLPClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.gaussian_process import GaussianProcessClassifier
+from sklearn.gaussian_process.kernels import RBF
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+
+
+n = [100, 100, 100, 100]  # number of points in each class
+mu = [ [-5, -4], [+6, +6], [+4, -5], [-8, +5] ]
+sigma = 2.2*np.array([[1, 1], [1, 1], [1, 1], [1, 1]])
+x_tr, y_tr = make_gaussian_datasets(n, mu, sigma)
+x_ts, y_ts = make_gaussian_datasets(n, mu, sigma)
+
+clf_list = [CNearestMeanClassifier(),
+            SVC(kernel=&#39;linear&#39;),
+            SVC(kernel=&#39;rbf&#39;),
+            RandomForestClassifier()]
+
+clf_names = [&#39;NMC&#39;, &#39;SVM&#39;, &#39;SVM-RBF&#39;, &#39;RF&#39;]
+
+for i, clf in enumerate(clf_list):
+    clf.fit(x_tr, y_tr)
+    plot_decision_regions(x_tr, y_tr, clf)
+    y_pred = clf.predict(x_ts)
+    print(&#39;Classification accuracy: &#39;, np.mean(y_pred == y_ts))
+    plt.title(clf_names[i])
+    plt.show()
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Classification accuracy:  0.98
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab02_12_1.png" src="../images/tutorials_lab02_12_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Classification accuracy:  0.9775
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab02_12_3.png" src="../images/tutorials_lab02_12_3.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Classification accuracy:  0.9825
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab02_12_5.png" src="../images/tutorials_lab02_12_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Classification accuracy:  0.9725
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab02_12_7.png" src="../images/tutorials_lab02_12_7.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="lab01.html" class="btn btn-neutral float-left" title="1. Machine Learning - Lab01" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
