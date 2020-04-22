@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Machine Learning - Lab02" href="lab02.html" />
+    <link rel="next" title="2. Machine Learning - Lab02" href="lab02.html" />
     <link rel="prev" title="Machine Learning" href="../index.html" /> 
 </head>
 
@@ -82,16 +82,18 @@
             
               <p class="caption"><span class="caption-text">Laboratory</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Machine Learning - Lab01</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Exercise-1">2. <strong>Exercise 1</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Exercise-2">3. <strong>Exercise 2</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Exercise-3">4. <strong>Exercise 3</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Exercise-4">5. <strong>Exercise 4</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab02.html">6. Machine Learning - Lab02</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-1">6.1. <strong>Exercise 1</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-2">6.2. <strong>Exercise 2</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-3">6.3. <strong>Exercise 3</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-4">6.4. Exercise 4</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Machine Learning - Lab01</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-1">1.1. <strong>Exercise 1</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-2">1.2. <strong>Exercise 2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-3">1.3. <strong>Exercise 3</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-4">1.4. <strong>Exercise 4</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lab02.html">2. Machine Learning - Lab02</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-1">2.1. <strong>Exercise 1</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-2">2.2. <strong>Exercise 2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-3">2.3. <strong>Exercise 3</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-4">2.4. Exercise 4</a></li>
 </ul>
 </li>
 </ul>
@@ -400,9 +402,8 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Machine-Learning---Lab01">
 <h1><span class="section-number">1. </span>Machine Learning - Lab01<a class="headerlink" href="#Machine-Learning---Lab01" title="Permalink to this headline">¶</a></h1>
-</div>
 <div class="section" id="Exercise-1">
-<h1><span class="section-number">2. </span><strong>Exercise 1</strong><a class="headerlink" href="#Exercise-1" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.1. </span><strong>Exercise 1</strong><a class="headerlink" href="#Exercise-1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Create an ndarray <code class="docutils literal notranslate"><span class="pre">x</span></code> with shape=(5,4) containing random numbers. Each of the 5 rows `epresents a sample with 4 features.</p></li>
 <li><p>Create a flat ndarray <code class="docutils literal notranslate"><span class="pre">y</span></code> of <code class="docutils literal notranslate"><span class="pre">shape=(5,</span> <span class="pre">)</span></code>, whose elements are 0 and 1. Each element is the class label of the corresponding sample in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
@@ -443,7 +444,7 @@ y =
 </div>
 </div>
 <div class="section" id="Exercise-2">
-<h1><span class="section-number">3. </span><strong>Exercise 2</strong><a class="headerlink" href="#Exercise-2" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.2. </span><strong>Exercise 2</strong><a class="headerlink" href="#Exercise-2" title="Permalink to this headline">¶</a></h2>
 <p>Define a function <code class="docutils literal notranslate"><span class="pre">extract_subset(x,</span> <span class="pre">y,</span> <span class="pre">y0)</span></code> that takes as input: - the feature matrix <code class="docutils literal notranslate"><span class="pre">x</span></code> and the labels <code class="docutils literal notranslate"><span class="pre">y</span></code> (from the previous exercise), - a target class <code class="docutils literal notranslate"><span class="pre">y0</span></code> (i.e., either 0 or 1), and returns a feature matrix containing only samples belonging to <code class="docutils literal notranslate"><span class="pre">y0</span></code></p>
 <p><strong>Hint:</strong> use array indexing with <code class="docutils literal notranslate"><span class="pre">y==y0</span></code></p>
 <div class="nbinput docutils container">
@@ -493,7 +494,7 @@ Patterns belonging to class  0 :
 </div>
 </div>
 <div class="section" id="Exercise-3">
-<h1><span class="section-number">4. </span><strong>Exercise 3</strong><a class="headerlink" href="#Exercise-3" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.3. </span><strong>Exercise 3</strong><a class="headerlink" href="#Exercise-3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Define a function <code class="docutils literal notranslate"><span class="pre">min_feature_values(x)</span></code> that returns the minimum value of each feature in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
 <li><p>Apply it on the previously-extracted samples <code class="docutils literal notranslate"><span class="pre">x0</span></code> of class 0.</p></li>
@@ -522,7 +523,7 @@ min. feat. values:  [0.50930794 0.24908666 0.10066267 0.46175565]
 </div>
 </div>
 <div class="section" id="Exercise-4">
-<h1><span class="section-number">5. </span><strong>Exercise 4</strong><a class="headerlink" href="#Exercise-4" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.4. </span><strong>Exercise 4</strong><a class="headerlink" href="#Exercise-4" title="Permalink to this headline">¶</a></h2>
 <p>Define a function <code class="docutils literal notranslate"><span class="pre">make_gaussian_dataset(n0,</span> <span class="pre">n1,</span> <span class="pre">mu0,</span> <span class="pre">mu1)</span></code>  that generates a two-class Gaussian dataset in a bi-dimensional space.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">n0,</span> <span class="pre">n1</span></code> are the number of samples for class 0 and class 1;</p></li>
@@ -587,6 +588,7 @@ yn:
 </pre></div></div>
 </div>
 </div>
+</div>
 
 
            </div>
@@ -596,7 +598,7 @@ yn:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="lab02.html" class="btn btn-neutral float-right" title="6. Machine Learning - Lab02" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="lab02.html" class="btn btn-neutral float-right" title="2. Machine Learning - Lab02" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral float-left" title="Machine Learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
