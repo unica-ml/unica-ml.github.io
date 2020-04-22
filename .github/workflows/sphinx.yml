@@ -27,7 +27,7 @@ jobs:
     - name: Sphinx Build
       run: | 
         rm -rf docs
-        sphinx-build -b html -E -W --keep-going ml/_docs docs
+        sphinx-build -b html -E -W --keep-going ml/_docs .
     - name: Commit documentation changes
       run: |
         git config --local user.email "action@github.com"
