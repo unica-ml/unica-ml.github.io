@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Machine Learning &mdash; Machine Learning  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="static/documentation_options.js"></script>
+        <script src="static/jquery.js"></script>
+        <script src="static/underscore.js"></script>
+        <script src="static/doctools.js"></script>
+        <script src="static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Machine Learning - Lab01" href="tutorials/lab01.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Machine Learning
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Laboratory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/lab01.html">1. Machine Learning - Lab01</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/lab01.html#Exercise-1">1.1. <strong>Exercise 1</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/lab01.html#Exercise-2">1.1.1. <strong>Exercise 2</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/lab01.html#Exercise-3">1.1.2. <strong>Exercise 3</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/lab01.html#Exercise-4">1.1.3. <strong>Exercise 4</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/lab02.html">2. Machine Learning - Lab02</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/lab02.html#Exercise-1">2.1. <strong>Exercise 1</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/lab02.html#Exercise-2">2.2. <strong>Exercise 2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/lab02.html#Exercise-3">2.3. <strong>Exercise 3</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/lab02.html#Exercise-4">2.4. Exercise 4</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Machine Learning</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Machine Learning</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="machine-learning">
+<h1>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h1>
+<p><strong>Academic Year 2019-2020</strong></p>
+<p><strong>Instructors:</strong> Prof. Fabio Roli, Dr. Battista Biggio</p>
+<p><strong>MSc in Computer Engineering, Cybersecurity and Artificial Intelligence</strong></p>
+<p><strong>MSc in Electronic Engineering</strong></p>
+<p><strong>PhD programme in Electronic and Computer Engineering</strong></p>
+<p><strong>GitHub repository for course material:</strong> <a class="reference external" href="https://github.com/unica-ml/ml">https://github.com/unica-ml/ml</a></p>
+<p><strong>Mailing list:</strong> The course mailing list is active. To subscribe, send an email to
+ml-unica+subscribe (at) googlegroups.com</p>
+<p><strong>Course objectives and outcome</strong></p>
+<p><em>Objectives</em></p>
+<p>The objective of this course is to provide students
+with the fundamental elements of machine learning and its applications
+to pattern recognition. The main concepts and methods of machine
+learning and statistical pattern recognition are presented,
+as well as basic methods to design and evaluate the performance
+of a pattern recognition system.</p>
+<p><em>Outcome</em></p>
+<p>An understanding of fundamental concepts and methods of machine learning,
+statistical pattern recognition and its applications.
+An ability to analyse and evaluate simple algorithms for pattern classification.
+An ability to design simple algorithms for pattern classification,
+code them with Python programming language and test them with benchmark data sets.</p>
+<p><strong>Class schedule</strong></p>
+<ul class="simple">
+<li><p>Tuesday, h. 13:50-15:30,  virtual classroom</p></li>
+<li><p>Wednesday, h. 13:50-15:30, virtual classroom</p></li>
+<li><p>Friday, h. 13:50-15:30, virtual classroom</p></li>
+</ul>
+<p><strong>Course Outline (6 CFU)</strong></p>
+<ol class="arabic simple">
+<li><p>Introduction (2 hours)</p></li>
+<li><p>Bayesian decision theory (6 hours)</p></li>
+<li><p>Introduction to pattern classification methods (2 hours)</p></li>
+<li><p>Parametric methods (4 hours)</p></li>
+<li><p>Non parametric methods and decision trees (4 hours)</p></li>
+<li><p>Linear discriminant functions and support vector machines (4 hours)</p></li>
+<li><p>Artificial neural networks (4 hours)</p></li>
+<li><p>Performance evaluation (2 hours)</p></li>
+<li><p>Clustering Methods (2 hours)</p></li>
+<li><p>Adversarial machine learning (2 hours)</p></li>
+<li><p>Exercises (12 hours)</p></li>
+<li><p>Python Programming language and computer exercises (16 hours)</p></li>
+</ol>
+<p><em>Course grading and material (6 CFU)</em></p>
+<ul class="simple">
+<li><p>Home computer-exercise assignment + Oral examination</p>
+<ul>
+<li><p>You can do intermediate assessments instead of the oral examination</p></li>
+<li><p>You can do intermediate assessments instead of the
+home computer-exercise assignment</p></li>
+<li><p>You can do the oral examination only after the computer exercise</p></li>
+<li><p>Teams of 3 students maximum can do the home computer exercise</p></li>
+</ul>
+</li>
+<li><p>Grading policy = Computer exercise (10/30) + Oral examination (20/30)</p></li>
+<li><p>Reference book: Pattern Classification (2^ edition),
+R. O. Duda, P. E. Hart, e D. G. Stork, John Wiley &amp; Sons, 2000</p></li>
+</ul>
+<p><strong>Slides (and Exercises)</strong></p>
+<p>Part 1 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-01.pdf">Introduction to the course</a></p>
+<p>Part 2 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-02.pdf">Elements of Bayesian Decision Theory</a>
+(<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-02-base-rate-fallacy.pdf">Base Rate Fallacy</a>)
+(<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/exercises/ml-part-02-exercises.pdf">Exercises</a>)</p>
+<p>Part 3 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-03.pdf">Introduction to Statistical Classification Techniques</a></p>
+<p>Part 4 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-04.pdf">Elements of Parametric Techniques</a> (Exercises)</p>
+<p>Part 5 - Elements of NonParametric Techniques (Exercises)</p>
+<p>Part 6 - Elements of Linear Discriminant Functions (Exercises)</p>
+<p>Part 7 - Neural Networks</p>
+<p>Part 8 - Elements of Performance Evaluation</p>
+<p>Part 9 - Elements of Data Clustering (Exercises)</p>
+<p><strong>Laboratory</strong></p>
+<p>Part 1 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lab/ml-lab-01.pdf">Python basics</a>
+(<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/notebooks/lab01.ipynb">Notebook 1</a>)</p>
+<p>Part 2 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lab/ml-lab-02.pdf">Data Sampling, Visualization, Learning and Classification</a> (<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/notebooks/lab02.ipynb">Notebook 2</a>)</p>
+<p>Part 3 - Performance Evaluation (Code)</p>
+<p>Part 4 - Parameter Estimation (Code)</p>
+<p>Part 5 - Short seminar on Adversarial Machine Learning (Code)</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorials/lab01.html" class="btn btn-neutral float-right" title="1. Machine Learning - Lab01" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
