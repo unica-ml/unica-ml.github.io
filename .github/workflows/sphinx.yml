@@ -26,7 +26,7 @@ jobs:
         pip install -r ml/_docs/requirements.txt
     - name: Sphinx Build
       run: | 
-        rm -r docs
+        rm -rf docs
         sphinx-build -b html -E -W --keep-going ml/_docs docs
     - name: Commit documentation changes
       run: |
