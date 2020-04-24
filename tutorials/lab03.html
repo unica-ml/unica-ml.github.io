@@ -1,0 +1,891 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Machine Learning - Lab03 &mdash; Machine Learning  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script src="../static/jquery.js"></script>
+        <script src="../static/underscore.js"></script>
+        <script src="../static/doctools.js"></script>
+        <script src="../static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2. Machine Learning - Lab02" href="lab02.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Machine Learning
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Laboratory</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lab01.html">1. Machine Learning - Lab01</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-1">1.1. <strong>Exercise 1</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-2">1.2. <strong>Exercise 2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-3">1.3. <strong>Exercise 3</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-4">1.4. <strong>Exercise 4</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lab02.html">2. Machine Learning - Lab02</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-1">2.1. <strong>Exercise 1</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-2">2.2. <strong>Exercise 2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-3">2.3. <strong>Exercise 3</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-4">2.4. Exercise 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Machine Learning - Lab03</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Gaussian-Classifier">3.1. Gaussian Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-1">3.2. Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-2">3.3. Exercise 2</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Machine Learning</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>Machine Learning - Lab03</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Machine-Learning---Lab03">
+<h1><span class="section-number">3. </span>Machine Learning - Lab03<a class="headerlink" href="#Machine-Learning---Lab03" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Gaussian-Classifier">
+<h2><span class="section-number">3.1. </span>Gaussian Classifier<a class="headerlink" href="#Gaussian-Classifier" title="Permalink to this headline">¶</a></h2>
+<p>We implement here a Gaussian classifier. It’s a Bayesian (generative) classifier that models the likelihood of each class with a Gaussian distribution. Accordingly, it classifies a sample <span class="math notranslate nohighlight">\(x\)</span> by assigning it to the class <span class="math notranslate nohighlight">\(y_k^\star\)</span> exhibiting the maximum a-posteriori probability:</p>
+<p><span class="math notranslate nohighlight">\(y_k^\star = \arg\max_{y_k} p(y_k | x ) = \frac{p(x|y_k) p_k}{p(x)},\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(p_k\)</span> is the prior probability of class <span class="math notranslate nohighlight">\(y_k\)</span>, and the likelihood <span class="math notranslate nohighlight">\(p(x | y_k)\)</span> is estimated as:</p>
+<div class="math notranslate nohighlight">
+\[p(x | y_k) = \mathrm{g}(x ; \mu_k, \Sigma_k)=\frac{1}{\sqrt{(2 \pi)^{d} \operatorname{det} \Sigma_k}} \exp \left(-\frac{1}{2}(x-\mu_k)^{T} \Sigma_k^{-1}(x-\mu_k)\right).\]</div>
+<p>Recall that the evidence <span class="math notranslate nohighlight">\(p(x)\)</span> can be computed by marginalizing over the labels, as <span class="math notranslate nohighlight">\(p(x) = \sum_k p(x | y_k) p_k\)</span>.</p>
+<p>In the class below, - <code class="docutils literal notranslate"><span class="pre">fit(x,y)</span></code> estimates the classifier’s hyperparameters <span class="math notranslate nohighlight">\(\mu_k, \Sigma_k, p_k\)</span> for each class, from the training data <code class="docutils literal notranslate"><span class="pre">x,y</span></code> given as input; - <code class="docutils literal notranslate"><span class="pre">decision_function(x)</span></code> returns a matrix (<code class="docutils literal notranslate"><span class="pre">scores</span></code>) with <code class="docutils literal notranslate"><span class="pre">shape=(n_samples,</span> <span class="pre">n_classes)</span></code>, where each element represents the probability that the given point belongs to the corresponding class; - and <code class="docutils literal notranslate"><span class="pre">predict(x)</span></code> returns the predicted labels (by taking the argmax for each row from <code class="docutils literal notranslate"><span class="pre">scores</span></code>).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>import numpy as np
+from scipy.stats import multivariate_normal as mvn
+
+
+class CClassifierGaussian:
+    &quot;&quot;&quot;
+    Class implementing a Gaussian classifier
+    &quot;&quot;&quot;
+
+    def __init__(self, posterior=True):
+        self._centroids = None
+        self._covariances = None
+        self._priors = None
+        # if True, return posterior probabilities; otherwise returns joint probs
+        self._posterior = posterior
+        return
+
+
+    @property
+    def posterior(self):
+        return self._posterior
+
+    @posterior.setter
+    def posterior(self, value):
+        self._posterior = bool(value)
+
+    @property
+    def centroids(self):
+        return self._centroids
+
+    @centroids.setter
+    def centroids(self, centroids):
+        &quot;&quot;&quot;Set centroids (if not estimated from training data).&quot;&quot;&quot;
+        self._centroids = np.array(centroids)
+
+    @property
+    def covariances(self):
+        return self._covariances
+
+    @covariances.setter
+    def covariances(self, covariances):
+        &quot;&quot;&quot;Set covariances (if not estimated from training data).&quot;&quot;&quot;
+        self._covariances = np.array(covariances)
+
+    @property
+    def priors(self):
+        return self._priors
+
+    @priors.setter
+    def priors(self, priors):
+        &quot;&quot;&quot;Set priors (if not estimated from training data).&quot;&quot;&quot;
+        self._priors = np.array(priors)
+
+    def fit(self, x, y):
+        &quot;&quot;&quot;Estimate priors, centroids and covariances with
+        maximum likelihood estimates from the training data x,y.
+        &quot;&quot;&quot;
+        n_classes = np.unique(y).size
+        n_features = x.shape[1]
+
+        self._priors = np.zeros(shape=(n_classes,))
+        self._centroids = np.zeros(shape=(n_classes, n_features))
+        self._covariances = np.zeros(shape=(n_classes, n_features, n_features))
+
+        for k in range(n_classes):
+            self._centroids[k, :] = x[y == k, :].mean(axis=0)
+            self._priors[k] = (y == k).mean()
+            self._covariances[k, :, :] = np.cov(x[y==k, :].T)
+
+        self._priors /= self._priors.sum()  # ensure priors sum up to 1
+        return self
+
+    def decision_function(self, x):
+        &quot;&quot;&quot;Return posterior or joint probability estimates for each class,
+        depending on whether posterior=True or False.
+        &quot;&quot;&quot;
+        n_samples = x.shape[0]
+        n_classes = self._centroids.shape[0]
+        scores = np.zeros(shape=(n_samples, n_classes))
+        for k in range(n_classes):
+            likelihood_k = mvn.pdf(
+                x, mean=self._centroids[k, :], cov=self._covariances[k, :, :])
+            scores[:, k] = self._priors[k] * likelihood_k  # joint probability
+
+        if self.posterior:
+            # if posterior probs are required, divide joint probs by evidence
+            evidence = scores.sum(axis=1)
+            for k in range(n_classes):
+                # normalize per row to estimate posterior
+                scores[:, k] /= evidence
+        return scores
+
+    def predict(self, x):
+        &quot;&quot;&quot;Return predicted labels.&quot;&quot;&quot;
+        scores = self.decision_function(x)
+        y_pred = np.argmax(scores, axis=1)
+        return y_pred
+
+
+</pre></div>
+</div>
+</div>
+<p>Let’s now import some utility functions (whose implementation is discussed in other notebooks): - <code class="docutils literal notranslate"><span class="pre">make_gaussian_dataset</span></code> to generate a Gaussian dataset; - <code class="docutils literal notranslate"><span class="pre">plot_dataset</span></code> to scatter the data points on a bi-dimensional feature space; - <code class="docutils literal notranslate"><span class="pre">plot_decision_regions</span></code> to display the decision regions and boundaries of a classifier on a bi-dimensional feature space.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
+
+
+def make_gaussian_dataset(n, mu, cov):
+    &quot;&quot;&quot;
+    Creates a k-class d-dimensional Gaussian dataset.
+    :param n: vector containing the number of samples for each class
+    :param mu: matrix containing the mean vector for each class
+    :return: x,y, the gaussian dataset
+    &quot;&quot;&quot;
+
+    n = np.array(n)  # convert to np.array if list is passed as input
+    mu = np.array(mu)
+    cov = np.array(cov)
+
+    n_classes = mu.shape[0]  # number of classes
+    n_features = mu.shape[1]  # number of features
+    n_samples = n.sum()  # total number of samples
+
+    x = np.zeros(shape=(n_samples, n_features))
+    y = np.zeros(shape=(n_samples,))
+
+    start_index = 0
+    for k in range(n_classes):
+        x_tmp = mvn.rvs(mean=mu[k, :], cov=cov[k, :, :], size=n[k])
+        x[start_index:start_index + n[k], :] = x_tmp
+        y[start_index:start_index + n[k]] = k
+        start_index += n[k]
+
+    return x, y
+
+
+def plot_dataset(x, y, feat_1=0, feat_2=1):
+    n_classes = len(np.unique(y))
+    colors = [&#39;r&#39;, &#39;b&#39;, &#39;g&#39;, &#39;k&#39;, &#39;c&#39;, &#39;m&#39;, &#39;y&#39;]
+
+    for y0 in range(n_classes):
+        x0 = x[y == y0, feat_1]  # y0 is the selected class within the loop
+        x1 = x[y == y0, feat_2]
+        plt.scatter(x0, x1, c=colors[y0], label=&#39;class &#39; + str(y0))
+    plt.legend()
+    plt.xlabel(&#39;feature x&#39; + str(feat_1))
+    plt.ylabel(&#39;feature x&#39; + str(feat_2))
+
+    return
+
+
+def plot_decision_regions(x, y, classifier, resolution=0.02):
+    # setup marker generator and color map
+    colors = (&#39;red&#39;, &#39;blue&#39;, &#39;lightgreen&#39;, &#39;black&#39;, &#39;gray&#39;, &#39;cyan&#39;)
+    cmap = ListedColormap(colors[:len(np.unique(y))])
+
+    # plot the decision surface
+    x1_min, x1_max = x[:, 0].min() - 1, x[:, 0].max() + 1
+    x2_min, x2_max = x[:, 1].min() - 1, x[:, 1].max() + 1
+    xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution),
+                           np.arange(x2_min, x2_max, resolution))
+    Z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
+    Z = Z.reshape(xx1.shape)
+    plt.contourf(xx1, xx2, Z, alpha=0.4, cmap=cmap)
+    plt.xlim(xx1.min(), xx1.max())
+    plt.ylim(xx2.min(), xx2.max())
+
+    return
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Exercise-1">
+<h2><span class="section-number">3.2. </span>Exercise 1<a class="headerlink" href="#Exercise-1" title="Permalink to this headline">¶</a></h2>
+<p>We can finally generate some data points and test our classifier!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>n_samples = [500, 500, 500]
+centroids = [[-5, -5],
+             [+5, -5],
+             [0, +5]]
+cov=[[[3, -1],
+      [-1, 3]],
+     [[3, -0.5],
+      [-0.5, 3]],
+     [[1, -1],
+      [-1, 3]]]
+
+# generate data
+x_tr, y_tr = make_gaussian_dataset(n_samples, centroids, cov=cov)
+x_ts, y_ts = make_gaussian_dataset(n_samples, centroids, cov=cov)
+
+clf = CClassifierGaussian()
+clf.fit(x_tr, y_tr)
+plot_decision_regions(x_tr, y_tr, classifier=clf)
+plot_dataset(x_tr, y_tr)
+plt.show()
+
+scores = clf.decision_function(x_ts)
+y_pred = clf.predict(x_ts)
+
+print(&#39;Estimated priors: &#39;, clf.priors)
+print(&#39;Estimated centroids (with MLE): &#39;, clf.centroids)
+print(&#39;Estimated covariances (with MLE): &#39;, clf.covariances)
+
+print(&#39;Test error (%): &#39;, (y_pred != y_ts).mean()*100)
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab03_6_0.png" src="../images/tutorials_lab03_6_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Estimated priors:  [0.33333333 0.33333333 0.33333333]
+Estimated centroids (with MLE):  [[-5.02818576 -5.07365035]
+ [ 4.95564731 -5.04938789]
+ [-0.03591899  4.87763586]]
+Estimated covariances (with MLE):  [[[ 2.89255506 -1.05314784]
+  [-1.05314784  2.77306075]]
+
+ [[ 2.88868113 -0.46682182]
+  [-0.46682182  3.04256309]]
+
+ [[ 1.04041627 -1.09369177]
+  [-1.09369177  3.26337424]]]
+Test error (%):  0.26666666666666666
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Exercise-2">
+<h2><span class="section-number">3.3. </span>Exercise 2<a class="headerlink" href="#Exercise-2" title="Permalink to this headline">¶</a></h2>
+<p>We now solve a different task, but using the true parameter values <span class="math notranslate nohighlight">\(p_k, \mu_k, \Sigma_k\)</span> for each class rather than estimating them with <code class="docutils literal notranslate"><span class="pre">fit</span></code>.</p>
+<p>In particular, we consider this data distribution (the same considered in Exercise 2 from Chapter 4):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{\mu}_{0}=\left[\begin{array}{l}
+0 \\
+0
+\end{array}\right], \mathbf{\mu}_{1}=\left[\begin{array}{l}
+2 \\
+2
+\end{array}\right], \mathbf{\mu}_{2}=\left[\begin{array}{l}
+-2 \\
+-2
+\end{array}\right],\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Sigma_{0}=\Sigma_{1}=\Sigma_{2}=\left[\begin{array}{cc}
+4 &amp; -3 \\
+-3 &amp; 4
+\end{array}\right],\end{split}\]</div>
+<p>and priors <span class="math notranslate nohighlight">\(p_0=p_1=1/4\)</span> and <span class="math notranslate nohighlight">\(p_2=1/2\)</span>.</p>
+<p>Our goal is to plot the decision regions for the optimal Bayesian classifier in this case, as well as the joint and posterior probabilities for each class.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>def plot_decision_function(x, y, classifier, k, resolution=0.02):
+    &quot;&quot;&quot;Plot classifier output on class k (e.g., joint or posterior prob.).&quot;&quot;&quot;
+    x1_min, x1_max = x[:, 0].min() - 1, x[:, 0].max() + 1
+    x2_min, x2_max = x[:, 1].min() - 1, x[:, 1].max() + 1
+    xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution),
+                           np.arange(x2_min, x2_max, resolution))
+    scores = classifier.decision_function(
+        np.array([xx1.ravel(), xx2.ravel()]).T)
+    Z = scores[:, k]  # select the output of interest (for class k)
+    Z = Z.reshape(xx1.shape)
+    plt.contourf(xx1, xx2, Z, cmap=&#39;jet&#39;, levels=50)
+    plt.xlim(xx1.min(), xx1.max())
+    plt.ylim(xx2.min(), xx2.max())
+    return
+
+priors = np.array([1/4, 1/4, 1/2])
+centroids = [[0, 0],
+             [2, 2],
+             [-2, -2]]
+cov=[[[4, -3], [-3, 4]],
+     [[4, -3], [-3, 4]],
+     [[4, -3], [-3, 4]]]
+
+# generate some points from this distribution
+n_samples = np.array(500 * priors, dtype=int)
+x_tr, y_tr = make_gaussian_dataset(n_samples, centroids, cov=cov)
+x_ts, y_ts = make_gaussian_dataset(10*n_samples, centroids, cov=cov)
+
+clf = CClassifierGaussian()
+# we do not estimate the parameters here, but use the true ones
+# clf.fit(x_tr, y_tr)
+clf._priors = np.array(priors)
+clf._centroids = np.array(centroids)
+clf._covariances = np.array(cov)
+plot_decision_regions(x_tr, y_tr, classifier=clf)
+plot_dataset(x_tr, y_tr)
+plt.show()
+
+scores = clf.decision_function(x_ts)
+y_pred = clf.predict(x_ts)
+print(&#39;Test error (%): &#39;, (y_pred != y_ts).mean()*100)
+
+plt.figure(figsize=(15,3))
+for k in range(n_samples.size):
+    plt.subplot(1, 3, k+1)
+    plot_decision_function(x_tr, y_tr, classifier=clf, k=k)
+    plt.title(&quot;Posterior prob. for class &quot; + str(k))
+    plt.colorbar()
+plt.show()
+
+clf.posterior = False  # this will return joint probs rather than posteriors
+plt.figure(figsize=(15,3))
+for k in range(n_samples.size):
+    plt.subplot(1, 3, k+1)
+    plot_decision_function(x_tr, y_tr, classifier=clf, k=k)
+    plt.title(&quot;Joint prob. for class &quot; + str(k))
+    plt.clim(0, 0.03)
+    plt.colorbar()
+plt.show()
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab03_8_0.png" src="../images/tutorials_lab03_8_0.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Test error (%):  9.36
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab03_8_2.png" src="../images/tutorials_lab03_8_2.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab03_8_3.png" src="../images/tutorials_lab03_8_3.png" />
+</div>
+</div>
+<p>As one may appreciate, the joint probability of class 2 has a higher peak since its prior is higher.</p>
+<p>But let’s look at the evidence <span class="math notranslate nohighlight">\(p(x)\)</span> in 3D to get a clearer impression…</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>import matplotlib.pyplot as plt
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+import numpy as np
+
+
+fig = plt.figure(figsize=(12,5))
+ax = fig.gca(projection=&#39;3d&#39;)
+
+x, y = make_gaussian_dataset(n_samples, centroids, cov=cov)
+resolution = 0.02
+
+# Make data.
+x1_min, x1_max = x[:, 0].min() - 1, x[:, 0].max() + 1
+x2_min, x2_max = x[:, 1].min() - 1, x[:, 1].max() + 1
+xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution),
+                        np.arange(x2_min, x2_max, resolution))
+scores = clf.decision_function(
+    np.array([xx1.ravel(), xx2.ravel()]).T)
+Z = scores.sum(axis=1)  # evidence
+Z = Z.reshape(xx1.shape)
+
+# Plot the surface.
+surf = ax.plot_surface(xx1, xx2, Z, cmap=&#39;jet&#39;, rstride=1, cstride=1,
+                       linewidth=0, antialiased=False)
+
+# Customize the z axis.
+ax.set_zlim(0, 0.03)
+ax.zaxis.set_major_locator(LinearLocator(10))
+ax.zaxis.set_major_formatter(FormatStrFormatter(&#39;%.02f&#39;))
+
+# Add a color bar which maps values to colors.
+fig.colorbar(surf, shrink=0.5, aspect=5)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab03_10_0.png" src="../images/tutorials_lab03_10_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="lab02.html" class="btn btn-neutral float-left" title="2. Machine Learning - Lab02" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
