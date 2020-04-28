@@ -102,8 +102,9 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Machine Learning - Lab04</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Exercise-1---Performance-Evaluation">4.1. Exercise 1 - Performance Evaluation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Exercise-2---Hyperparameter-Estimation">4.2. Exercise 2 - Hyperparameter Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Preparation">4.1. Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-1---Performance-Evaluation">4.2. Exercise 1 - Performance Evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-2---Hyperparameter-Estimation">4.3. Exercise 2 - Hyperparameter Estimation</a></li>
 </ul>
 </li>
 </ul>
@@ -412,10 +413,11 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Machine-Learning---Lab04">
 <h1><span class="section-number">4. </span>Machine Learning - Lab04<a class="headerlink" href="#Machine-Learning---Lab04" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="Exercise-1---Performance-Evaluation">
-<h2><span class="section-number">4.1. </span>Exercise 1 - Performance Evaluation<a class="headerlink" href="#Exercise-1---Performance-Evaluation" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="section" id="Preparation">
+<h2><span class="section-number">4.1. </span>Preparation<a class="headerlink" href="#Preparation" title="Permalink to this headline">¶</a></h2>
+<p>We import here some utility functions from previous labs, and prepare loaders for the two-moon and MNIST digit data.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -428,6 +430,8 @@ from sklearn.datasets import make_moons
 
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
+
+import tensorflow as tf
 
 
 def plot_dataset(x, y, feat0=0, feat1=1):
@@ -454,8 +458,73 @@ def plot_decision_regions(x, y, classifier, resolution=1e-3):
     plt.ylim(xx2.min(), xx2.max())
 
 
-# sample data
+def load_mnist(n_samples, tr=False):
+    if tr:
+        # load mnist training (60,000 samples)
+        (x, y), _ = tf.keras.datasets.mnist.load_data()
+    else:
+        # load mnist test (10,000 samples)
+        _, (x, y) = tf.keras.datasets.mnist.load_data()
+    # print(x.shape, y.shape)
+    # let&#39;s reshape and subsample to the first 500 digits
+    x = x.reshape(x.shape[0], 784)  # flatten each digit as a row
+    x = x[:n_samples, :]  # take the first n_samples digits
+    y = y[:n_samples]
+    return x, y
+
+
+def plot_digits(x, y, n=10):
+    for i in range(n**2):
+        plt.subplot(n,n,i+1)
+        plt.imshow(x[i].reshape(28,28), cmap=&#39;Greys&#39;)
+        plt.axis(&#39;off&#39;)
+
+
+</pre></div>
+</div>
+</div>
+<p>Scatter two-moon data and MNIST digits</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span># sample data
 x, y = make_moons(n_samples=1000, noise=0.2)
+plt.figure(figsize=(5,5))
+plot_dataset(x,y)
+plt.show()
+
+x, y = load_mnist(n_samples=1000)
+plt.figure(figsize=(8,8))
+plot_digits(x,y)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab04_4_0.png" src="../images/tutorials_lab04_4_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab04_4_1.png" src="../images/tutorials_lab04_4_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Exercise-1---Performance-Evaluation">
+<h2><span class="section-number">4.2. </span>Exercise 1 - Performance Evaluation<a class="headerlink" href="#Exercise-1---Performance-Evaluation" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>x, y = make_moons(n_samples=1000, noise=0.2)
 
 splitter = ShuffleSplit(n_splits=5, random_state=0, train_size=0.5)
 
@@ -484,15 +553,15 @@ for tr_idx, ts_idx in splitter.split(x, y):
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Test error: 12.2%
-Test error: 13.0%
-Test error: 12.8%
-Test error: 13.4%
-Test error: 11.2%
+Test error: 15.2%
+Test error: 14.0%
+Test error: 15.0%
+Test error: 14.6%
+Test error: 16.0%
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -511,12 +580,12 @@ plt.show()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../images/tutorials_lab04_3_0.png" src="../images/tutorials_lab04_3_0.png" />
+<img alt="../images/tutorials_lab04_7_0.png" src="../images/tutorials_lab04_7_0.png" />
 </div>
 </div>
 <p>Now, let’s code this procedure as a function <code class="docutils literal notranslate"><span class="pre">run</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -560,34 +629,20 @@ print(&quot;Mean test error: {:.1%} +/- {:.1%}&quot;.format(1-acc.mean(), 2*acc.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Mean test accuracy: 87.3% +/- 2.2%
-Mean test error: 12.7% +/- 2.2%
+Mean test accuracy: 86.0% +/- 1.8%
+Mean test error: 14.0% +/- 1.8%
 </pre></div></div>
 </div>
 <p>Let’s test it on the MNIST digit data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>import tensorflow as tf
-
-
-_, (x, y) = tf.keras.datasets.mnist.load_data()  # load mnist
-
-print(x.shape, y.shape)
-
+<span></span>x, y = load_mnist(n_samples=500)
 plt.figure(figsize=(8,8))
-for i in range(100):
-    plt.subplot(10,10,i+1)
-    plt.imshow(x[i], cmap=&#39;Greys&#39;)
-    plt.axis(&#39;off&#39;)
+plot_digits(x,y)
 plt.show()
-
-# let&#39;s reshape and subsample to the first 500 digits
-x = x.reshape(10000, 784)  # flatten each digit as a row
-x = x[:500, :]  # take the first 500 digits
-y = y[:500]
 
 clf = svm.SVC(kernel=&#39;linear&#39;)
 
@@ -600,15 +655,7 @@ print(&quot;Mean test accuracy: {:.1%} +/- {:.1%}\n&quot;.format(acc.mean(), 2*a
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-(10000, 28, 28) (10000,)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../images/tutorials_lab04_7_1.png" src="../images/tutorials_lab04_7_1.png" />
+<img alt="../images/tutorials_lab04_11_0.png" src="../images/tutorials_lab04_11_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -622,15 +669,15 @@ Mean test accuracy: 83.5% +/- 4.3%
 </div>
 </div>
 <div class="section" id="Exercise-2---Hyperparameter-Estimation">
-<h2><span class="section-number">4.2. </span>Exercise 2 - Hyperparameter Estimation<a class="headerlink" href="#Exercise-2---Hyperparameter-Estimation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Exercise 2 - Hyperparameter Estimation<a class="headerlink" href="#Exercise-2---Hyperparameter-Estimation" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
 <span></span>from sklearn.model_selection import GridSearchCV
 
-# let&#39;s go back to a simpler dataset
+# let&#39;s go back to the two-moon dataset
 x, y = make_moons(n_samples=1000, noise=0.2)
 
 clf = GridSearchCV(estimator=svm.SVC(kernel=&#39;linear&#39;),
@@ -656,39 +703,29 @@ print(&quot;Mean test accuracy: {:.1%} +/- {:.1%}\n&quot;.format(acc.mean(), 2*a
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Hyperparameter estimation (5-fold xval)
-    - Best parameters set found on development set: {&#39;C&#39;: 100}
+    - Best parameters set found on development set: {&#39;C&#39;: 10}
     - Grid scores on development set:
-        0.506 (+/-0.010) for {&#39;C&#39;: 0.01}
-        0.878 (+/-0.029) for {&#39;C&#39;: 0.1}
-        0.878 (+/-0.041) for {&#39;C&#39;: 1}
-        0.878 (+/-0.034) for {&#39;C&#39;: 10}
-        0.880 (+/-0.033) for {&#39;C&#39;: 100}
-Mean test accuracy: 86.9% +/- 2.0%
+        0.512 (+/-0.008) for {&#39;C&#39;: 0.01}
+        0.850 (+/-0.042) for {&#39;C&#39;: 0.1}
+        0.862 (+/-0.029) for {&#39;C&#39;: 1}
+        0.872 (+/-0.034) for {&#39;C&#39;: 10}
+        0.866 (+/-0.037) for {&#39;C&#39;: 100}
+Mean test accuracy: 86.1% +/- 2.0%
 
 </pre></div></div>
 </div>
 <p>Let’s use MNIST</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>import tensorflow as tf
-from sklearn.model_selection import GridSearchCV
+<span></span>from sklearn.model_selection import GridSearchCV
 
-_, (x, y) = tf.keras.datasets.mnist.load_data()  # load mnist
-
+x, y = load_mnist(n_samples=500)
 plt.figure(figsize=(8,8))
-for i in range(100):
-    plt.subplot(10,10,i+1)
-    plt.imshow(x[i], cmap=&#39;Greys&#39;)
-    plt.axis(&#39;off&#39;)
+plot_digits(x,y)
 plt.show()
-
-# let&#39;s reshape and subsample to the first 500 digits
-x = x.reshape(10000, 784)  # flatten each digit as a row
-x = x[:500, :]  # take the first 500 digits
-y = y[:500]
 
 clf = GridSearchCV(estimator=svm.SVC(kernel=&#39;linear&#39;),
                    param_grid={&#39;C&#39;: [0.01, 0.1, 1, 10, 100]})
@@ -707,29 +744,12 @@ print(&quot;Mean test accuracy: {:.1%} +/- {:.1%}\n&quot;.format(acc.mean(), 2*a
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../images/tutorials_lab04_11_0.png" src="../images/tutorials_lab04_11_0.png" />
-</div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-Hyperparameter estimation (5-fold xval)
-    - Best parameters set found on development set: {&#39;C&#39;: 0.1}
-    - Grid scores on development set:
-        0.824 (+/-0.039) for {&#39;C&#39;: 0.01}
-        0.852 (+/-0.090) for {&#39;C&#39;: 0.1}
-        0.852 (+/-0.090) for {&#39;C&#39;: 1}
-        0.852 (+/-0.090) for {&#39;C&#39;: 10}
-        0.852 (+/-0.090) for {&#39;C&#39;: 100}
-Mean test accuracy: 83.5% +/- 4.3%
-
-</pre></div></div>
+<img alt="../images/tutorials_lab04_15_0.png" src="../images/tutorials_lab04_15_0.png" />
+</div>
 </div>
 </div>
 </div>
