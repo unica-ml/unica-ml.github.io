@@ -105,6 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Preparation">4.1. Preparation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Exercise-1---Performance-Evaluation">4.2. Exercise 1 - Performance Evaluation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Exercise-2---Hyperparameter-Estimation">4.3. Exercise 2 - Hyperparameter Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Extras-on-Hyperparameter-Optimization">4.4. Extras on Hyperparameter Optimization</a></li>
 </ul>
 </li>
 </ul>
@@ -483,9 +484,9 @@ def plot_digits(x, y, n=10):
 </pre></div>
 </div>
 </div>
-<p>Scatter two-moon data and MNIST digits</p>
+<p>We now scatter the two-moon data and plot some MNIST digits.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -520,7 +521,7 @@ plt.show()
 <div class="section" id="Exercise-1---Performance-Evaluation">
 <h2><span class="section-number">4.2. </span>Exercise 1 - Performance Evaluation<a class="headerlink" href="#Exercise-1---Performance-Evaluation" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -529,8 +530,8 @@ plt.show()
 splitter = ShuffleSplit(n_splits=5, random_state=0, train_size=0.5)
 
 scaler = MinMaxScaler()
-clf = svm.SVC(kernel=&#39;linear&#39;, C=1)
-clf_name = &#39;Linear SVM&#39;
+clf = svm.SVC(kernel=&#39;rbf&#39;, C=10, gamma=10.0)
+clf_name = &#39;SVM RBF&#39;
 
 for tr_idx, ts_idx in splitter.split(x, y):
     xtr = x[tr_idx, :]
@@ -553,15 +554,15 @@ for tr_idx, ts_idx in splitter.split(x, y):
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Test error: 15.2%
-Test error: 14.0%
-Test error: 15.0%
-Test error: 14.6%
-Test error: 16.0%
+Test error: 4.0%
+Test error: 4.6%
+Test error: 3.6%
+Test error: 2.4%
+Test error: 4.2%
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -583,9 +584,9 @@ plt.show()
 <img alt="../images/tutorials_lab04_7_0.png" src="../images/tutorials_lab04_7_0.png" />
 </div>
 </div>
-<p>Now, let’s code this procedure as a function <code class="docutils literal notranslate"><span class="pre">run</span></code></p>
+<p>Now, let’s code this procedure as a function <code class="docutils literal notranslate"><span class="pre">run</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -629,13 +630,13 @@ print(&quot;Mean test error: {:.1%} +/- {:.1%}&quot;.format(1-acc.mean(), 2*acc.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Mean test accuracy: 86.0% +/- 1.8%
-Mean test error: 14.0% +/- 1.8%
+Mean test accuracy: 86.3% +/- 2.7%
+Mean test error: 13.7% +/- 2.7%
 </pre></div></div>
 </div>
 <p>Let’s test it on the MNIST digit data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -670,8 +671,14 @@ Mean test accuracy: 83.5% +/- 4.3%
 </div>
 <div class="section" id="Exercise-2---Hyperparameter-Estimation">
 <h2><span class="section-number">4.3. </span>Exercise 2 - Hyperparameter Estimation<a class="headerlink" href="#Exercise-2---Hyperparameter-Estimation" title="Permalink to this headline">¶</a></h2>
+<p>Optimize the classifier hyperparameters by performing a grid search with 5-fold cross validation.</p>
+<p>You can use a linear SVM and tune the hyperparameter <code class="docutils literal notranslate"><span class="pre">C</span></code> using the values:<code class="docutils literal notranslate"><span class="pre">[0.01,</span> <span class="pre">0.1,</span> <span class="pre">1,</span> <span class="pre">10,</span> <span class="pre">100]</span></code>.</p>
+<p>For each <code class="docutils literal notranslate"><span class="pre">C</span></code> value, we have to compute the mean validation accuracy (averaged on the 5 folds). Then, we will select the <code class="docutils literal notranslate"><span class="pre">C</span></code> value corresponding to the maximum mean validation accuracy, and use that value to train our classifier on the whole training set.</p>
+<p>This procedure is already implemented by the <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> wrapper class from sklearn, and we will use it along with our <code class="docutils literal notranslate"><span class="pre">run</span></code> function.</p>
+<p>See: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html">https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html</a></p>
+<p>Let’s start by solving the exercise with the <code class="docutils literal notranslate"><span class="pre">make_moons</span></code> dataset.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -703,20 +710,20 @@ print(&quot;Mean test accuracy: {:.1%} +/- {:.1%}\n&quot;.format(acc.mean(), 2*a
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Hyperparameter estimation (5-fold xval)
-    - Best parameters set found on development set: {&#39;C&#39;: 10}
+    - Best parameters set found on development set: {&#39;C&#39;: 1}
     - Grid scores on development set:
-        0.512 (+/-0.008) for {&#39;C&#39;: 0.01}
-        0.850 (+/-0.042) for {&#39;C&#39;: 0.1}
-        0.862 (+/-0.029) for {&#39;C&#39;: 1}
-        0.872 (+/-0.034) for {&#39;C&#39;: 10}
-        0.866 (+/-0.037) for {&#39;C&#39;: 100}
-Mean test accuracy: 86.1% +/- 2.0%
+        0.510 (+/-0.000) for {&#39;C&#39;: 0.01}
+        0.842 (+/-0.081) for {&#39;C&#39;: 0.1}
+        0.858 (+/-0.085) for {&#39;C&#39;: 1}
+        0.858 (+/-0.082) for {&#39;C&#39;: 10}
+        0.852 (+/-0.091) for {&#39;C&#39;: 100}
+Mean test accuracy: 85.3% +/- 1.2%
 
 </pre></div></div>
 </div>
-<p>Let’s use MNIST</p>
+<p>We can do the same on the MNIST data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -744,11 +751,93 @@ print(&quot;Mean test accuracy: {:.1%} +/- {:.1%}\n&quot;.format(acc.mean(), 2*a
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../images/tutorials_lab04_15_0.png" src="../images/tutorials_lab04_15_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hyperparameter estimation (5-fold xval)
+    - Best parameters set found on development set: {&#39;C&#39;: 0.1}
+    - Grid scores on development set:
+        0.824 (+/-0.039) for {&#39;C&#39;: 0.01}
+        0.852 (+/-0.090) for {&#39;C&#39;: 0.1}
+        0.852 (+/-0.090) for {&#39;C&#39;: 1}
+        0.852 (+/-0.090) for {&#39;C&#39;: 10}
+        0.852 (+/-0.090) for {&#39;C&#39;: 100}
+Mean test accuracy: 83.5% +/- 4.3%
+
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Extras-on-Hyperparameter-Optimization">
+<h2><span class="section-number">4.4. </span>Extras on Hyperparameter Optimization<a class="headerlink" href="#Extras-on-Hyperparameter-Optimization" title="Permalink to this headline">¶</a></h2>
+<p>Hyperparameter optimization can be formalized as a bilevel optimization problem:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray}
+\min_\gamma &amp;&amp; L(\mathcal D_{\rm val}, \theta^\star(\gamma))\\
+ {\rm s.t. } &amp;&amp; \theta^\star \in {\arg\min}_\theta \mathcal L(\mathcal D_{\rm tr}, \theta, \gamma)
+\end{eqnarray}\end{split}\]</div>
+<p>Let’s have a look at the outer objective function (i.e., the validation loss) for an SVM with the RBF kernel, w.r.t. its hyperparameters <span class="math notranslate nohighlight">\(C, \gamma\)</span>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>x_tr, y_tr = make_moons(n_samples=1000, noise=0.2)
+x_vd, y_vd = make_moons(n_samples=1000, noise=0.2)
+
+C_values = np.logspace(-3, 3, num=7, base=10)
+gamma_values= np.logspace(-3, 3, num=7, base=10)
+
+print(&quot;C: &quot;, C_values)
+print(&quot;gamma: &quot;, gamma_values)
+
+clf = svm.SVC(kernel=&#39;rbf&#39;)
+
+xx1, xx2 = np.meshgrid(C_values, gamma_values)
+pairs = np.array([xx1.ravel(), xx2.ravel()]).T
+val_loss = np.zeros(shape=(pairs.shape[0],))
+# for each possible (C, gamma) pair:
+for k, (C, gamma) in enumerate(pairs):
+    # print (C, gamma)
+    clf.set_params(C=C, gamma=gamma)
+    clf.fit(x_tr, y_tr)
+    y_pred = clf.predict(x_vd)
+    val_loss[k] = (y_pred != y_vd).mean()
+
+Z = val_loss.reshape(xx1.shape)
+plt.contourf(xx1, xx2, Z, alpha=0.8, cmap=&#39;jet&#39;, levels=50)
+plt.xlabel(&#39;C&#39;)
+plt.ylabel(&#39;gamma&#39;)
+plt.title(&#39;Validation error&#39;)
+plt.xscale(&quot;log&quot;)
+plt.yscale(&quot;log&quot;)
+plt.colorbar()
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+C:  [1.e-03 1.e-02 1.e-01 1.e+00 1.e+01 1.e+02 1.e+03]
+gamma:  [1.e-03 1.e-02 1.e-01 1.e+00 1.e+01 1.e+02 1.e+03]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab04_17_1.png" src="../images/tutorials_lab04_17_1.png" />
 </div>
 </div>
 </div>
