@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Machine Learning - Lab01 &mdash; Machine Learning  documentation</title>
+  <title>4. Machine Learning - Lab04 &mdash; Machine Learning  documentation</title>
   
 
   
@@ -38,8 +38,7 @@
   <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Machine Learning - Lab02" href="lab02.html" />
-    <link rel="prev" title="Machine Learning" href="../index.html" /> 
+    <link rel="prev" title="3. Machine Learning - Lab03" href="lab03.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,11 +81,11 @@
             
               <p class="caption"><span class="caption-text">Laboratory</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Machine Learning - Lab01</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Exercise-1">1.1. <strong>Exercise 1</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Exercise-2">1.2. <strong>Exercise 2</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Exercise-3">1.3. <strong>Exercise 3</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Exercise-4">1.4. <strong>Exercise 4</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab01.html">1. Machine Learning - Lab01</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-1">1.1. <strong>Exercise 1</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-2">1.2. <strong>Exercise 2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-3">1.3. <strong>Exercise 3</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-4">1.4. <strong>Exercise 4</strong></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lab02.html">2. Machine Learning - Lab02</a><ul>
@@ -102,9 +101,9 @@
 <li class="toctree-l2"><a class="reference internal" href="lab03.html#Exercise-2">3.3. Exercise 2</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lab04.html">4. Machine Learning - Lab04</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lab04.html#Exercise-1---Performance-Evaluation">4.1. Exercise 1 - Performance Evaluation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lab04.html#Exercise-2---Hyperparameter-Estimation">4.2. Exercise 2 - Hyperparameter Estimation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Machine Learning - Lab04</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-1---Performance-Evaluation">4.1. Exercise 1 - Performance Evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercise-2---Hyperparameter-Estimation">4.2. Exercise 2 - Hyperparameter Estimation</a></li>
 </ul>
 </li>
 </ul>
@@ -152,7 +151,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li><span class="section-number">1. </span>Machine Learning - Lab01</li>
+      <li><span class="section-number">4. </span>Machine Learning - Lab04</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -411,30 +410,72 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Machine-Learning---Lab01">
-<h1><span class="section-number">1. </span>Machine Learning - Lab01<a class="headerlink" href="#Machine-Learning---Lab01" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="Exercise-1">
-<h2><span class="section-number">1.1. </span><strong>Exercise 1</strong><a class="headerlink" href="#Exercise-1" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Create an ndarray <code class="docutils literal notranslate"><span class="pre">x</span></code> with shape=(5,4) containing random numbers. Each of the 5 rows `epresents a sample with 4 features.</p></li>
-<li><p>Create a flat ndarray <code class="docutils literal notranslate"><span class="pre">y</span></code> of <code class="docutils literal notranslate"><span class="pre">shape=(5,</span> <span class="pre">)</span></code>, whose elements are 0 and 1. Each element is the class label of the corresponding sample in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
-<li><p>This is a simple example of a two-class dataset!</p></li>
-</ul>
-<p><strong>Hint:</strong> use <code class="docutils literal notranslate"><span class="pre">np.random.rand(...)</span></code> and <code class="docutils literal notranslate"><span class="pre">np.random.randint(...)</span></code></p>
+<div class="section" id="Machine-Learning---Lab04">
+<h1><span class="section-number">4. </span>Machine Learning - Lab04<a class="headerlink" href="#Machine-Learning---Lab04" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Exercise-1---Performance-Evaluation">
+<h2><span class="section-number">4.1. </span>Exercise 1 - Performance Evaluation<a class="headerlink" href="#Exercise-1---Performance-Evaluation" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
 <span></span>import numpy as np
 
-n_samples = 5
-n_features = 4
-x = np.random.rand(n_samples, n_features)
-y = np.random.randint(0, 2, n_samples)
+from sklearn import svm
+from sklearn.model_selection import ShuffleSplit
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.datasets import make_moons
 
-print(&#39;x = \n&#39;, x)
-print(&#39;y = \n&#39;, y)
+import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
+
+
+def plot_dataset(x, y, feat0=0, feat1=1):
+    colors = [&#39;b.&#39;, &#39;r.&#39;, &#39;g.&#39;, &#39;k.&#39;, &#39;c.&#39;, &#39;m.&#39;]
+    class_labels = np.unique(y).astype(int)
+    for k in class_labels:
+        plt.plot(x[y == k, feat0], x[y == k, feat1], colors[k % 7])
+
+
+def plot_decision_regions(x, y, classifier, resolution=1e-3):
+    # setup marker generator and color map
+    colors = (&#39;blue&#39;, &#39;red&#39;, &#39;lightgreen&#39;, &#39;black&#39;, &#39;cyan&#39;, &#39;magenta&#39;)
+    cmap = ListedColormap(colors[:len(np.unique(y))])
+
+    # plot the decision surface
+    x1_min, x1_max = x[:, 0].min() - 0.02, x[:, 0].max() + 0.02
+    x2_min, x2_max = x[:, 1].min() - 0.02, x[:, 1].max() + 0.02
+    xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution),
+                           np.arange(x2_min, x2_max, resolution))
+    Z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
+    Z = Z.reshape(xx1.shape)
+    plt.contourf(xx1, xx2, Z, alpha=0.4, cmap=cmap)
+    plt.xlim(xx1.min(), xx1.max())
+    plt.ylim(xx2.min(), xx2.max())
+
+
+# sample data
+x, y = make_moons(n_samples=1000, noise=0.2)
+
+splitter = ShuffleSplit(n_splits=5, random_state=0, train_size=0.5)
+
+scaler = MinMaxScaler()
+clf = svm.SVC(kernel=&#39;linear&#39;, C=1)
+clf_name = &#39;Linear SVM&#39;
+
+for tr_idx, ts_idx in splitter.split(x, y):
+    xtr = x[tr_idx, :]
+    ytr = y[tr_idx]
+    xts = x[ts_idx, :]
+    yts = y[ts_idx]
+
+    xtr = scaler.fit_transform(xtr)
+    xts = scaler.transform(xts)
+
+    clf.fit(xtr, ytr)
+    ypred = clf.predict(xts)
+    error = (ypred != yts).mean()
+    print(&quot;Test error: {:.1%}&quot;.format(error))
 </pre></div>
 </div>
 </div>
@@ -443,44 +484,26 @@ print(&#39;y = \n&#39;, y)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-x =
- [[0.17069494 0.03770676 0.99979726 0.6774094 ]
- [0.26877433 0.13784261 0.72835031 0.82410774]
- [0.28165136 0.97955105 0.88056525 0.90652879]
- [0.28316797 0.95529736 0.10284505 0.26986831]
- [0.70393971 0.8956021  0.48534449 0.71599334]]
-y =
- [1 1 1 0 0]
+Test error: 12.2%
+Test error: 13.0%
+Test error: 12.8%
+Test error: 13.4%
+Test error: 11.2%
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Exercise-2">
-<h2><span class="section-number">1.2. </span><strong>Exercise 2</strong><a class="headerlink" href="#Exercise-2" title="Permalink to this headline">¶</a></h2>
-<p>Define a function <code class="docutils literal notranslate"><span class="pre">extract_subset(x,</span> <span class="pre">y,</span> <span class="pre">y0)</span></code> that takes as input: - the feature matrix <code class="docutils literal notranslate"><span class="pre">x</span></code> and the labels <code class="docutils literal notranslate"><span class="pre">y</span></code> (from the previous exercise), - a target class <code class="docutils literal notranslate"><span class="pre">y0</span></code> (i.e., either 0 or 1), and returns a feature matrix containing only samples belonging to <code class="docutils literal notranslate"><span class="pre">y0</span></code></p>
-<p><strong>Hint:</strong> use array indexing with <code class="docutils literal notranslate"><span class="pre">y==y0</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>def extract_subset(x, y, y0):
-    &quot;&quot;&quot;Return samples (rows) from x that belong to class y0.&quot;&quot;&quot;
-    return x[y==y0, :]
-
-
-n_patterns = 5
-n_features = 4
-x = np.random.rand(n_patterns, n_features)
-y = np.random.randint(0, 2, n_patterns)
-
-y0 = 0
-x0 = extract_subset(x, y, y0)
-
-print(&#39;x: \n&#39;, x)
-print(&#39;y: \n&#39;, y)
-print(&#39;Patterns belonging to class &#39;, y0, &#39;:\n&#39;, x0)
-
-
+<span></span># plot the last classifier
+plt.figure(figsize=(5,5))
+plt.title(clf_name)
+plot_decision_regions(xtr, ytr, clf)
+plot_dataset(xtr, ytr)
+plt.text(0.05, 0.05, &quot;Test error: {:.1%}&quot;.format(error),
+        bbox=dict(facecolor=&#39;white&#39;))
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -488,39 +511,47 @@ print(&#39;Patterns belonging to class &#39;, y0, &#39;:\n&#39;, x0)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-x:
- [[0.50930794 0.34987588 0.64064233 0.46175565]
- [0.68440698 0.24908666 0.10066267 0.70397305]
- [0.90067763 0.95918709 0.32564421 0.56097037]
- [0.69391657 0.86712593 0.75417251 0.95245483]
- [0.37308444 0.72400453 0.94547073 0.02179429]]
-y:
- [0 0 0 1 1]
-Patterns belonging to class  0 :
- [[0.50930794 0.34987588 0.64064233 0.46175565]
- [0.68440698 0.24908666 0.10066267 0.70397305]
- [0.90067763 0.95918709 0.32564421 0.56097037]]
-</pre></div></div>
+<img alt="../images/tutorials_lab04_3_0.png" src="../images/tutorials_lab04_3_0.png" />
 </div>
 </div>
-<div class="section" id="Exercise-3">
-<h2><span class="section-number">1.3. </span><strong>Exercise 3</strong><a class="headerlink" href="#Exercise-3" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Define a function <code class="docutils literal notranslate"><span class="pre">min_feature_values(x)</span></code> that returns the minimum value of each feature in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
-<li><p>Apply it on the previously-extracted samples <code class="docutils literal notranslate"><span class="pre">x0</span></code> of class 0.</p></li>
-</ul>
-<p><strong>Hint:</strong> use <code class="docutils literal notranslate"><span class="pre">np.min()</span></code> with a proper <code class="docutils literal notranslate"><span class="pre">axis</span></code> value.</p>
+<p>Now, let’s code this procedure as a function <code class="docutils literal notranslate"><span class="pre">run</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>def min_feature_values(x):
-    &quot;&quot;&quot;Return the minimum value for each feature (column).&quot;&quot;&quot;
-    return np.min(x, axis=0)
+<span></span>def run(x, y, splitter, scaler, clf):
+    &quot;&quot;&quot;Take input data (x,y), split it (n times), scale it,
+    learn classifier on training data, and evaluate the mean test error.
+    &quot;&quot;&quot;
+    acc = np.zeros(shape=(splitter.get_n_splits(),))
 
-print(&#39;min. feat. values: &#39;, min_feature_values(x0))
+    for i, (tr_idx, ts_idx) in enumerate(splitter.split(x, y)):
+        xtr = x[tr_idx, :]
+        ytr = y[tr_idx]
+        xts = x[ts_idx, :]
+        yts = y[ts_idx]
+
+        xtr = scaler.fit_transform(xtr)
+        xts = scaler.transform(xts)
+
+        clf.fit(xtr, ytr)
+        ypred = clf.predict(xts)
+        acc[i] = (ypred == yts).mean()
+    return acc
+
+
+# sample data
+x, y = make_moons(n_samples=1000, noise=0.2)
+
+splitter = ShuffleSplit(n_splits=10, random_state=0, train_size=0.5)
+
+scaler = MinMaxScaler()
+clf = svm.SVC(kernel=&#39;linear&#39;, C=1)
+acc = run(x, y, splitter, scaler, clf)
+print(&quot;Mean test accuracy: {:.1%} +/- {:.1%}&quot;.format(acc.mean(), 2*acc.std()))
+print(&quot;Mean test error: {:.1%} +/- {:.1%}&quot;.format(1-acc.mean(), 2*acc.std()))
+
 </pre></div>
 </div>
 </div>
@@ -529,42 +560,93 @@ print(&#39;min. feat. values: &#39;, min_feature_values(x0))
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-min. feat. values:  [0.50930794 0.24908666 0.10066267 0.46175565]
+Mean test accuracy: 87.3% +/- 2.2%
+Mean test error: 12.7% +/- 2.2%
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Exercise-4">
-<h2><span class="section-number">1.4. </span><strong>Exercise 4</strong><a class="headerlink" href="#Exercise-4" title="Permalink to this headline">¶</a></h2>
-<p>Define a function <code class="docutils literal notranslate"><span class="pre">make_gaussian_dataset(n0,</span> <span class="pre">n1,</span> <span class="pre">mu0,</span> <span class="pre">mu1)</span></code>  that generates a two-class Gaussian dataset in a bi-dimensional space.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">n0,</span> <span class="pre">n1</span></code> are the number of samples for class 0 and class 1;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mu0,</span> <span class="pre">mu1</span></code> are the means of the two Gaussians (one per class).</p></li>
-</ul>
-<p>We consider only Gaussian distributions with covariance equal to the identity matrix here for simplicity.</p>
-<p>The function returns the corresponding feature matrix <code class="docutils literal notranslate"><span class="pre">x</span></code> and labels <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<p><strong>Hints:</strong> - Use <code class="docutils literal notranslate"><span class="pre">np.random.randn(...)</span></code> to generate random numbers from a standard Gaussian distribution, with zero mean and unit variance, and then transform them to have a different mean (repeat twice, one per class). - Use <code class="docutils literal notranslate"><span class="pre">np.ones(...)</span></code> and/or <code class="docutils literal notranslate"><span class="pre">np.zeros(...)</span></code> for class labels. - Use <code class="docutils literal notranslate"><span class="pre">np.vstack(...)</span></code> and <code class="docutils literal notranslate"><span class="pre">np.hstack(...)</span></code> to concatenate arrays.</p>
+<p>Let’s test it on the MNIST digit data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>def make_gaussian_dataset(n0, n1, mu0, mu1):
-    &quot;&quot;&quot; Creates a 2-class 2-dimensional Gaussian dataset. &quot;&quot;&quot;
-    d = 2  # hard-coded for convenience, we will improve this later on
-    x0 = np.random.randn(n0, d) + mu0  # uses broadcasting...
-    x1 = np.random.randn(n1, d) + mu1
-    # sample labels
-    y0 = np.zeros(n0)
-    y1 = np.ones(n1)
-    # concatenate data and labels
-    x = np.vstack((x0, x1))
-    y = np.hstack((y0, y1))
-    return x, y
+<span></span>import tensorflow as tf
 
- # generate data with 10 samples/class, and means [-1,-1], [1, 1]
- xn, yn = make_gaussian_dataset(10, 10, [-1, -1], [+1, +1])
-print(&#39;xn:\n&#39;, xn)
- print(&#39;yn:\n&#39;, yn)
+
+_, (x, y) = tf.keras.datasets.mnist.load_data()  # load mnist
+
+print(x.shape, y.shape)
+
+plt.figure(figsize=(8,8))
+for i in range(100):
+    plt.subplot(10,10,i+1)
+    plt.imshow(x[i], cmap=&#39;Greys&#39;)
+    plt.axis(&#39;off&#39;)
+plt.show()
+
+# let&#39;s reshape and subsample to the first 500 digits
+x = x.reshape(10000, 784)  # flatten each digit as a row
+x = x[:500, :]  # take the first 500 digits
+y = y[:500]
+
+clf = svm.SVC(kernel=&#39;linear&#39;)
+
+acc = run(x, y, splitter, scaler, clf)
+print(&quot;Mean test accuracy: {:.1%} +/- {:.1%}\n&quot;.format(acc.mean(), 2*acc.std()))
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(10000, 28, 28) (10000,)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab04_7_1.png" src="../images/tutorials_lab04_7_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Mean test accuracy: 83.5% +/- 4.3%
+
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Exercise-2---Hyperparameter-Estimation">
+<h2><span class="section-number">4.2. </span>Exercise 2 - Hyperparameter Estimation<a class="headerlink" href="#Exercise-2---Hyperparameter-Estimation" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>from sklearn.model_selection import GridSearchCV
+
+# let&#39;s go back to a simpler dataset
+x, y = make_moons(n_samples=1000, noise=0.2)
+
+clf = GridSearchCV(estimator=svm.SVC(kernel=&#39;linear&#39;),
+                   param_grid={&#39;C&#39;: [0.01, 0.1, 1, 10, 100]})
+
+acc = run(x, y, splitter, scaler, clf)
+
+print(&quot;Hyperparameter estimation (5-fold xval)&quot;)
+print(&quot;    - Best parameters set found on development set:&quot;, clf.best_params_)
+print(&quot;    - Grid scores on development set:&quot;)
+means = clf.cv_results_[&#39;mean_test_score&#39;]
+stds = clf.cv_results_[&#39;std_test_score&#39;]
+for mean, std, params in zip(means, stds, clf.cv_results_[&#39;params&#39;]):
+    print(&quot;        %0.3f (+/-%0.03f) for %r&quot; % (mean, std * 2, params))
+
+print(&quot;Mean test accuracy: {:.1%} +/- {:.1%}\n&quot;.format(acc.mean(), 2*acc.std()))
 </pre></div>
 </div>
 </div>
@@ -573,29 +655,80 @@ print(&#39;xn:\n&#39;, xn)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-xn:
- [[-0.69899482 -1.06844759]
- [ 0.63717269 -1.4456145 ]
- [-1.35037329 -0.57810285]
- [-1.12160324 -0.88613524]
- [-0.00388741 -2.0748431 ]
- [ 1.22436656 -0.59756577]
- [ 0.4401931  -2.38286629]
- [-0.39600529 -2.55879318]
- [ 0.54321647  0.47937146]
- [ 0.16100627 -1.29317353]
- [-0.50936291  1.40397979]
- [ 0.31331909  1.24311831]
- [ 0.01237789  1.40329076]
- [-0.62192459  1.92607024]
- [ 1.534028    1.00074474]
- [ 1.46433523  0.11743643]
- [ 2.16103522  0.17506456]
- [ 0.82799606  1.7097106 ]
- [-1.17990394  2.02954165]
- [ 0.86198684  1.3350841 ]]
-yn:
- [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+Hyperparameter estimation (5-fold xval)
+    - Best parameters set found on development set: {&#39;C&#39;: 100}
+    - Grid scores on development set:
+        0.506 (+/-0.010) for {&#39;C&#39;: 0.01}
+        0.878 (+/-0.029) for {&#39;C&#39;: 0.1}
+        0.878 (+/-0.041) for {&#39;C&#39;: 1}
+        0.878 (+/-0.034) for {&#39;C&#39;: 10}
+        0.880 (+/-0.033) for {&#39;C&#39;: 100}
+Mean test accuracy: 86.9% +/- 2.0%
+
+</pre></div></div>
+</div>
+<p>Let’s use MNIST</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>import tensorflow as tf
+from sklearn.model_selection import GridSearchCV
+
+_, (x, y) = tf.keras.datasets.mnist.load_data()  # load mnist
+
+plt.figure(figsize=(8,8))
+for i in range(100):
+    plt.subplot(10,10,i+1)
+    plt.imshow(x[i], cmap=&#39;Greys&#39;)
+    plt.axis(&#39;off&#39;)
+plt.show()
+
+# let&#39;s reshape and subsample to the first 500 digits
+x = x.reshape(10000, 784)  # flatten each digit as a row
+x = x[:500, :]  # take the first 500 digits
+y = y[:500]
+
+clf = GridSearchCV(estimator=svm.SVC(kernel=&#39;linear&#39;),
+                   param_grid={&#39;C&#39;: [0.01, 0.1, 1, 10, 100]})
+
+acc = run(x, y, splitter, scaler, clf)
+
+print(&quot;Hyperparameter estimation (5-fold xval)&quot;)
+print(&quot;    - Best parameters set found on development set:&quot;, clf.best_params_)
+print(&quot;    - Grid scores on development set:&quot;)
+means = clf.cv_results_[&#39;mean_test_score&#39;]
+stds = clf.cv_results_[&#39;std_test_score&#39;]
+for mean, std, params in zip(means, stds, clf.cv_results_[&#39;params&#39;]):
+    print(&quot;        %0.3f (+/-%0.03f) for %r&quot; % (mean, std * 2, params))
+
+print(&quot;Mean test accuracy: {:.1%} +/- {:.1%}\n&quot;.format(acc.mean(), 2*acc.std()))
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab04_11_0.png" src="../images/tutorials_lab04_11_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hyperparameter estimation (5-fold xval)
+    - Best parameters set found on development set: {&#39;C&#39;: 0.1}
+    - Grid scores on development set:
+        0.824 (+/-0.039) for {&#39;C&#39;: 0.01}
+        0.852 (+/-0.090) for {&#39;C&#39;: 0.1}
+        0.852 (+/-0.090) for {&#39;C&#39;: 1}
+        0.852 (+/-0.090) for {&#39;C&#39;: 10}
+        0.852 (+/-0.090) for {&#39;C&#39;: 100}
+Mean test accuracy: 83.5% +/- 4.3%
+
 </pre></div></div>
 </div>
 </div>
@@ -609,10 +742,8 @@ yn:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="lab02.html" class="btn btn-neutral float-right" title="2. Machine Learning - Lab02" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="../index.html" class="btn btn-neutral float-left" title="Machine Learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="lab03.html" class="btn btn-neutral float-left" title="3. Machine Learning - Lab03" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
