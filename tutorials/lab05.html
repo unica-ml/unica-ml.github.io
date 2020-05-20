@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Neural Networks with PyTorch &mdash; Machine Learning  documentation</title>
+  <title>5. Machine Learning - Lab05 &mdash; Machine Learning  documentation</title>
   
 
   
@@ -108,11 +108,14 @@
 <li class="toctree-l2"><a class="reference internal" href="lab04.html#Extras-on-Hyperparameter-Optimization">4.4. Extras on Hyperparameter Optimization</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Neural Networks with PyTorch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Logistic/Softmax-Classifier-on-MNIST-data">6. Logistic/Softmax Classifier on MNIST data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Training-a-CNN-on-MNIST">7. Training a CNN on MNIST</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Training-a-CNN-on-CIFAR10">8. Training a CNN on CIFAR10</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Pretrained-ImageNet-models-and-Adversarial-Examples">9. Pretrained ImageNet models and Adversarial Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Machine Learning - Lab05</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Neural-Networks-with-PyTorch">5.1. Neural Networks with PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Logistic/Softmax-Classifier-on-MNIST-data">5.2. Logistic/Softmax Classifier on MNIST data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Training-a-CNN-on-MNIST">5.3. Training a CNN on MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Training-a-CNN-on-CIFAR10">5.4. Training a CNN on CIFAR10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Pretrained-ImageNet-Models-and-Adversarial-Examples">5.5. Pretrained ImageNet Models and Adversarial Examples</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -158,7 +161,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li><span class="section-number">5. </span>Neural Networks with PyTorch</li>
+      <li><span class="section-number">5. </span>Machine Learning - Lab05</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -431,8 +434,10 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <p><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></p>
+<div class="section" id="Machine-Learning---Lab05">
+<h1><span class="section-number">5. </span>Machine Learning - Lab05<a class="headerlink" href="#Machine-Learning---Lab05" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Neural-Networks-with-PyTorch">
-<h1><span class="section-number">5. </span>Neural Networks with PyTorch<a class="headerlink" href="#Neural-Networks-with-PyTorch" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">5.1. </span>Neural Networks with PyTorch<a class="headerlink" href="#Neural-Networks-with-PyTorch" title="Permalink to this headline">¶</a></h2>
 <p>This notebook provides a brief introduction to PyTorch, inspired from the PyTorch tutorials available at <a class="reference external" href="https://github.com/yunjey/pytorch-tutorial">https://github.com/yunjey/pytorch-tutorial</a> and <a class="reference external" href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html">https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html</a>.</p>
 <p>Let’s start with tensors, autograd/autodiff and to/from numpy conversions.</p>
 <div class="nbinput docutils container">
@@ -507,7 +512,7 @@ z:  [[1 2]
 </div>
 </div>
 <div class="section" id="Logistic/Softmax-Classifier-on-MNIST-data">
-<h1><span class="section-number">6. </span>Logistic/Softmax Classifier on MNIST data<a class="headerlink" href="#Logistic/Softmax-Classifier-on-MNIST-data" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">5.2. </span>Logistic/Softmax Classifier on MNIST data<a class="headerlink" href="#Logistic/Softmax-Classifier-on-MNIST-data" title="Permalink to this headline">¶</a></h2>
 <p>We aim to learn a multiclass linear classifier <span class="math notranslate nohighlight">\(f(x) = Wx+b\)</span> on the MNIST dataset, where we have <span class="math notranslate nohighlight">\(d=28 \times 28=784\)</span> pixels as inputs, and we aim to predict <span class="math notranslate nohighlight">\(k=10\)</span> values (one output per class), i.e., <span class="math notranslate nohighlight">\(f(x) : R^d \mapsto R^k\)</span>.</p>
 <p>To learn the classifier parameters <span class="math notranslate nohighlight">\(W \in R^{k \times d}, b \in R^k\)</span>, we minimize the cross-entropy loss on the softmax-scaled <span class="math notranslate nohighlight">\(k\)</span> outputs:</p>
 <div class="math notranslate nohighlight">
@@ -693,7 +698,7 @@ Accuracy of the model on the 10000 test images: 80.76000213623047 %
 </div>
 </div>
 <div class="section" id="Training-a-CNN-on-MNIST">
-<h1><span class="section-number">7. </span>Training a CNN on MNIST<a class="headerlink" href="#Training-a-CNN-on-MNIST" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">5.3. </span>Training a CNN on MNIST<a class="headerlink" href="#Training-a-CNN-on-MNIST" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -837,7 +842,7 @@ Test Accuracy of the model on the 10000 test images: 98.28 %
 </div>
 </div>
 <div class="section" id="Training-a-CNN-on-CIFAR10">
-<h1><span class="section-number">8. </span>Training a CNN on CIFAR10<a class="headerlink" href="#Training-a-CNN-on-CIFAR10" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">5.4. </span>Training a CNN on CIFAR10<a class="headerlink" href="#Training-a-CNN-on-CIFAR10" title="Permalink to this headline">¶</a></h2>
 <p>Source: <a class="reference external" href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html">https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html</a></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -1093,8 +1098,8 @@ Accuracy of truck : 41 %
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="Pretrained-ImageNet-models-and-Adversarial-Examples">
-<h1><span class="section-number">9. </span>Pretrained ImageNet models and Adversarial Examples<a class="headerlink" href="#Pretrained-ImageNet-models-and-Adversarial-Examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Pretrained-ImageNet-Models-and-Adversarial-Examples">
+<h2><span class="section-number">5.5. </span>Pretrained ImageNet Models and Adversarial Examples<a class="headerlink" href="#Pretrained-ImageNet-Models-and-Adversarial-Examples" title="Permalink to this headline">¶</a></h2>
 <p>We use torchvision here to download and use a pretrained ImageNet model.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -1343,6 +1348,7 @@ ID: 105 Label: koala                     Score: 0.01
 </div>
 <div class="output_area docutils container">
 <img alt="../images/tutorials_lab05_22_3.png" src="../images/tutorials_lab05_22_3.png" />
+</div>
 </div>
 </div>
 </div>
