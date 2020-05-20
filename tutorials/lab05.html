@@ -112,7 +112,7 @@
 <li class="toctree-l1"><a class="reference internal" href="#Logistic/Softmax-Classifier-on-MNIST-data">6. Logistic/Softmax Classifier on MNIST data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#Training-a-CNN-on-MNIST">7. Training a CNN on MNIST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#Training-a-CNN-on-CIFAR10">8. Training a CNN on CIFAR10</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Pretrained-ImageNet-models">9. Pretrained ImageNet models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Pretrained-ImageNet-models-and-Adversarial-Examples">9. Pretrained ImageNet models and Adversarial Examples</a></li>
 </ul>
 
             
@@ -436,7 +436,7 @@ div.rendered_html tbody tr:hover {
 <p>This notebook provides a brief introduction to PyTorch, inspired from the PyTorch tutorials available at <a class="reference external" href="https://github.com/yunjey/pytorch-tutorial">https://github.com/yunjey/pytorch-tutorial</a> and <a class="reference external" href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html">https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html</a>.</p>
 <p>Let’s start with tensors, autograd/autodiff and to/from numpy conversions.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -515,7 +515,7 @@ z:  [[1 2]
 <p>where <span class="math notranslate nohighlight">\(\mathcal D = (x_i, y_i)_{i=1}^n\)</span> is the training set, <span class="math notranslate nohighlight">\(\sigma\)</span> is the softmax operator, and <span class="math notranslate nohighlight">\(y_{ic}\)</span> is 1 if the training sample <span class="math notranslate nohighlight">\(x_i\)</span> belongs to class <span class="math notranslate nohighlight">\(c\)</span> and 0 otherwise (one-hot label encoding of <span class="math notranslate nohighlight">\(y_i\)</span>).</p>
 <p>More details (including gradient computation) at: <a class="reference external" href="https://peterroelants.github.io/posts/cross-entropy-softmax/">https://peterroelants.github.io/posts/cross-entropy-softmax/</a>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -571,7 +571,7 @@ imshow(torchvision.utils.make_grid(images, nrow=8))
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -642,7 +642,7 @@ Epoch [2/2], Step [900/938], Loss: 1.2264
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -662,7 +662,7 @@ plt.show()
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -695,7 +695,7 @@ Accuracy of the model on the 10000 test images: 80.76000213623047 %
 <div class="section" id="Training-a-CNN-on-MNIST">
 <h1><span class="section-number">7. </span>Training a CNN on MNIST<a class="headerlink" href="#Training-a-CNN-on-MNIST" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -784,7 +784,7 @@ Epoch [2/2], Step [900/938], Loss: 0.0491
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -804,7 +804,7 @@ plt.show()
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -840,7 +840,7 @@ Test Accuracy of the model on the 10000 test images: 98.28 %
 <h1><span class="section-number">8. </span>Training a CNN on CIFAR10<a class="headerlink" href="#Training-a-CNN-on-CIFAR10" title="Permalink to this headline">¶</a></h1>
 <p>Source: <a class="reference external" href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html">https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -938,7 +938,7 @@ optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1007,7 +1007,7 @@ Finished Training
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1037,7 +1037,7 @@ GroundTruth:    cat  ship  ship plane  frog  frog   car  frog
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1093,11 +1093,11 @@ Accuracy of truck : 41 %
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="Pretrained-ImageNet-models">
-<h1><span class="section-number">9. </span>Pretrained ImageNet models<a class="headerlink" href="#Pretrained-ImageNet-models" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Pretrained-ImageNet-models-and-Adversarial-Examples">
+<h1><span class="section-number">9. </span>Pretrained ImageNet models and Adversarial Examples<a class="headerlink" href="#Pretrained-ImageNet-models-and-Adversarial-Examples" title="Permalink to this headline">¶</a></h1>
 <p>We use torchvision here to download and use a pretrained ImageNet model.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1161,7 +1161,7 @@ imshow(input_tensor)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -1216,7 +1216,7 @@ Label: titi                      Score: 0.00
 </div>
 <p>Now we run an adversarial attack!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
