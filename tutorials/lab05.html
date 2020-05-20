@@ -1,0 +1,1396 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. Neural Networks with PyTorch &mdash; Machine Learning  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script src="../static/jquery.js"></script>
+        <script src="../static/underscore.js"></script>
+        <script src="../static/doctools.js"></script>
+        <script src="../static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="4. Machine Learning - Lab04" href="lab04.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Machine Learning
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Laboratory</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lab01.html">1. Machine Learning - Lab01</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-1">1.1. <strong>Exercise 1</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-2">1.2. <strong>Exercise 2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-3">1.3. <strong>Exercise 3</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab01.html#Exercise-4">1.4. <strong>Exercise 4</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lab02.html">2. Machine Learning - Lab02</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-1">2.1. <strong>Exercise 1</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-2">2.2. <strong>Exercise 2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-3">2.3. <strong>Exercise 3</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab02.html#Exercise-4">2.4. Exercise 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lab03.html">3. Machine Learning - Lab03</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab03.html#Gaussian-Classifier">3.1. Gaussian Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab03.html#Exercise-1">3.2. Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab03.html#Exercise-2">3.3. Exercise 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lab04.html">4. Machine Learning - Lab04</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab04.html#Preparation">4.1. Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab04.html#Exercise-1---Performance-Evaluation">4.2. Exercise 1 - Performance Evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab04.html#Exercise-2---Hyperparameter-Estimation">4.3. Exercise 2 - Hyperparameter Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab04.html#Extras-on-Hyperparameter-Optimization">4.4. Extras on Hyperparameter Optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Neural Networks with PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Logistic/Softmax-Classifier-on-MNIST-data">6. Logistic/Softmax Classifier on MNIST data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Training-a-CNN-on-MNIST">7. Training a CNN on MNIST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Training-a-CNN-on-CIFAR10">8. Training a CNN on CIFAR10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Pretrained-ImageNet-models">9. Pretrained ImageNet models</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Machine Learning</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">5. </span>Neural Networks with PyTorch</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<p><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></p>
+<div class="section" id="Neural-Networks-with-PyTorch">
+<h1><span class="section-number">5. </span>Neural Networks with PyTorch<a class="headerlink" href="#Neural-Networks-with-PyTorch" title="Permalink to this headline">¶</a></h1>
+<p>This notebook provides a brief introduction to PyTorch, inspired from the PyTorch tutorials available at <a class="reference external" href="https://github.com/yunjey/pytorch-tutorial">https://github.com/yunjey/pytorch-tutorial</a> and <a class="reference external" href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html">https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html</a>.</p>
+<p>Let’s start with tensors, autograd/autodiff and to/from numpy conversions.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>import torch
+import torchvision
+import torch.nn as nn
+import numpy as np
+import torchvision.transforms as transforms
+
+import matplotlib.pyplot as plt
+
+
+# ================================================================== #
+#                        Basic autograd example                      #
+# ================================================================== #
+
+# Create tensors.
+x = torch.tensor(1., requires_grad=True)
+w = torch.tensor(2., requires_grad=True)
+b = torch.tensor(3., requires_grad=True)
+
+# Build a computational graph.
+y = w * x + b    # y = 2 * x + 3
+
+# Compute gradients.
+y.backward()
+
+# Print out the gradients.
+print(x.grad)    # x.grad = 2
+print(w.grad)    # w.grad = 1
+print(b.grad)    # b.grad = 1
+
+
+# ================================================================== #
+#                        Loading data from numpy                     #
+# ================================================================== #
+
+# Create a numpy array.
+x = np.array([[1, 2], [3, 4]])
+
+# Convert the numpy array to a torch tensor.
+y = torch.from_numpy(x)
+
+# Convert the torch tensor to a numpy array.
+z = y.numpy()
+
+print(&quot;x: &quot;, x)
+print(&quot;y: &quot;, y)
+print(&quot;z: &quot;, z)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+tensor(2.)
+tensor(1.)
+tensor(1.)
+x:  [[1 2]
+ [3 4]]
+y:  tensor([[1, 2],
+        [3, 4]])
+z:  [[1 2]
+ [3 4]]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Logistic/Softmax-Classifier-on-MNIST-data">
+<h1><span class="section-number">6. </span>Logistic/Softmax Classifier on MNIST data<a class="headerlink" href="#Logistic/Softmax-Classifier-on-MNIST-data" title="Permalink to this headline">¶</a></h1>
+<p>We aim to learn a multiclass linear classifier <span class="math notranslate nohighlight">\(f(x) = Wx+b\)</span> on the MNIST dataset, where we have <span class="math notranslate nohighlight">\(d=28 \times 28=784\)</span> pixels as inputs, and we aim to predict <span class="math notranslate nohighlight">\(k=10\)</span> values (one output per class), i.e., <span class="math notranslate nohighlight">\(f(x) : R^d \mapsto R^k\)</span>.</p>
+<p>To learn the classifier parameters <span class="math notranslate nohighlight">\(W \in R^{k \times d}, b \in R^k\)</span>, we minimize the cross-entropy loss on the softmax-scaled <span class="math notranslate nohighlight">\(k\)</span> outputs:</p>
+<div class="math notranslate nohighlight">
+\[\min_{W,b} L(\mathcal D, W, b) = -\sum_{i=1}^{n} \sum_{c=1}^{k} y_{i c} \cdot \log \left( \sigma(f_{c}(x_i; W, b))\right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathcal D = (x_i, y_i)_{i=1}^n\)</span> is the training set, <span class="math notranslate nohighlight">\(\sigma\)</span> is the softmax operator, and <span class="math notranslate nohighlight">\(y_{ic}\)</span> is 1 if the training sample <span class="math notranslate nohighlight">\(x_i\)</span> belongs to class <span class="math notranslate nohighlight">\(c\)</span> and 0 otherwise (one-hot label encoding of <span class="math notranslate nohighlight">\(y_i\)</span>).</p>
+<p>More details (including gradient computation) at: <a class="reference external" href="https://peterroelants.github.io/posts/cross-entropy-softmax/">https://peterroelants.github.io/posts/cross-entropy-softmax/</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span># Hyper-parameters
+input_size = 28 * 28    # 784
+num_classes = 10
+batch_size = 64
+
+# set CPU or GPU, if available
+device = torch.device(&#39;cuda:0&#39; if torch.cuda.is_available() else &#39;cpu&#39;)
+
+# MNIST dataset (images and labels)
+train_dataset = torchvision.datasets.MNIST(root=&#39;data&#39;,
+                                           train=True,
+                                           transform=transforms.ToTensor(),
+                                           download=True)
+
+test_dataset = torchvision.datasets.MNIST(root=&#39;data&#39;,
+                                          train=False,
+                                          transform=transforms.ToTensor())
+
+# Data loader (input pipeline)
+train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
+                                           batch_size=batch_size,
+                                           shuffle=True)
+
+test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
+                                          batch_size=batch_size,
+                                          shuffle=False)
+
+# functions to show an image
+def imshow(img):
+    npimg = img.numpy()
+    plt.imshow(np.transpose(npimg, (1, 2, 0)))
+    plt.show()
+
+# get some random training images
+dataiter = iter(train_loader)
+images, labels = dataiter.next()
+
+plt.figure(figsize=(7,10))
+imshow(torchvision.utils.make_grid(images, nrow=8))
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab05_4_0.png" src="../images/tutorials_lab05_4_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span># Hyper-parameters
+num_epochs = 2
+learning_rate = 0.001
+
+# Logistic regression model
+model = nn.Linear(input_size, num_classes).to(device)
+
+# Loss and optimizer
+# nn.CrossEntropyLoss() computes softmax internally
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
+
+# Train the model
+total_step = len(train_loader)
+loss_path = np.zeros(shape=(num_epochs,total_step))
+for epoch in range(num_epochs):
+    for i, (images, labels) in enumerate(train_loader):
+        # Reshape images to (batch_size, input_size)
+        images = images.reshape(-1, input_size)
+        images = images.to(device)
+        labels = labels.to(device)
+
+        # Forward pass
+        outputs = model(images)
+        loss = criterion(outputs, labels)
+
+        loss_path[epoch][i] = loss.item()
+
+        # Backward and optimize
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        if (i+1) % 100 == 0:
+            print (&#39;Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}&#39;
+                   .format(epoch+1, num_epochs, i+1, total_step, loss.item()))
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch [1/2], Step [100/938], Loss: 2.2098
+Epoch [1/2], Step [200/938], Loss: 2.1292
+Epoch [1/2], Step [300/938], Loss: 2.0584
+Epoch [1/2], Step [400/938], Loss: 1.9288
+Epoch [1/2], Step [500/938], Loss: 1.8840
+Epoch [1/2], Step [600/938], Loss: 1.7852
+Epoch [1/2], Step [700/938], Loss: 1.6696
+Epoch [1/2], Step [800/938], Loss: 1.6102
+Epoch [1/2], Step [900/938], Loss: 1.6238
+Epoch [2/2], Step [100/938], Loss: 1.6056
+Epoch [2/2], Step [200/938], Loss: 1.4597
+Epoch [2/2], Step [300/938], Loss: 1.3716
+Epoch [2/2], Step [400/938], Loss: 1.3599
+Epoch [2/2], Step [500/938], Loss: 1.3436
+Epoch [2/2], Step [600/938], Loss: 1.2618
+Epoch [2/2], Step [700/938], Loss: 1.3426
+Epoch [2/2], Step [800/938], Loss: 1.2091
+Epoch [2/2], Step [900/938], Loss: 1.2264
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>plt.figure()
+plt.plot(loss_path.ravel())
+plt.title(&#39;Loss&#39;)
+plt.xlabel(&quot;iteration&quot;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab05_6_0.png" src="../images/tutorials_lab05_6_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span># Test the model
+# In test phase, we don&#39;t need to compute gradients (for memory efficiency)
+with torch.no_grad():
+    correct = 0
+    total = 0
+    for images, labels in test_loader:
+        images = images.reshape(-1, input_size)
+        outputs = model(images)
+        _, predicted = torch.max(outputs.data, 1)
+        total += labels.size(0)
+        correct += (predicted == labels).sum()
+
+    print(&#39;Accuracy of the model on the 10000 test images: {} %&#39;
+          .format(100.0 * correct / total))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Accuracy of the model on the 10000 test images: 80.76000213623047 %
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Training-a-CNN-on-MNIST">
+<h1><span class="section-number">7. </span>Training a CNN on MNIST<a class="headerlink" href="#Training-a-CNN-on-MNIST" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span># Hyper-parameters
+num_epochs = 2
+learning_rate = 0.001
+
+# Convolutional neural network (two convolutional layers)
+class ConvNet(nn.Module):
+    def __init__(self, num_classes=10):
+        super(ConvNet, self).__init__()
+        self.layer1 = nn.Sequential(
+            nn.Conv2d(1, 16, kernel_size=5, stride=1, padding=2),
+            nn.BatchNorm2d(16),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2, stride=2))
+        self.layer2 = nn.Sequential(
+            nn.Conv2d(16, 32, kernel_size=5, stride=1, padding=2),
+            nn.BatchNorm2d(32),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2, stride=2))
+        self.fc = nn.Linear(7*7*32, num_classes)
+
+    def forward(self, x):
+        out = self.layer1(x)
+        out = self.layer2(out)
+        out = out.reshape(out.size(0), -1)
+        out = self.fc(out)
+        return out
+
+model = ConvNet(num_classes).to(device)
+
+# Loss and optimizer
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+
+# Train the model
+total_step = len(train_loader)
+loss_path = np.zeros(shape=(num_epochs,total_step))
+for epoch in range(num_epochs):
+    for i, (images, labels) in enumerate(train_loader):
+        images = images.to(device)
+        labels = labels.to(device)
+
+        # Forward pass
+        outputs = model(images)
+        loss = criterion(outputs, labels)
+
+        loss_path[epoch][i] = loss.item()
+
+        # Backward and optimize
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        if (i+1) % 100 == 0:
+            print (&#39;Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}&#39;
+                   .format(epoch+1, num_epochs, i+1, total_step, loss.item()))
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch [1/2], Step [100/938], Loss: 0.1906
+Epoch [1/2], Step [200/938], Loss: 0.2524
+Epoch [1/2], Step [300/938], Loss: 0.1216
+Epoch [1/2], Step [400/938], Loss: 0.0783
+Epoch [1/2], Step [500/938], Loss: 0.0643
+Epoch [1/2], Step [600/938], Loss: 0.0177
+Epoch [1/2], Step [700/938], Loss: 0.1139
+Epoch [1/2], Step [800/938], Loss: 0.0489
+Epoch [1/2], Step [900/938], Loss: 0.0109
+Epoch [2/2], Step [100/938], Loss: 0.0221
+Epoch [2/2], Step [200/938], Loss: 0.0057
+Epoch [2/2], Step [300/938], Loss: 0.0734
+Epoch [2/2], Step [400/938], Loss: 0.0873
+Epoch [2/2], Step [500/938], Loss: 0.0296
+Epoch [2/2], Step [600/938], Loss: 0.0691
+Epoch [2/2], Step [700/938], Loss: 0.0164
+Epoch [2/2], Step [800/938], Loss: 0.0274
+Epoch [2/2], Step [900/938], Loss: 0.0491
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>plt.figure()
+plt.plot(loss_path.ravel())
+plt.title(&#39;Loss&#39;)
+plt.xlabel(&quot;iteration&quot;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab05_10_0.png" src="../images/tutorials_lab05_10_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span># Test the model
+# eval mode (batchnorm uses moving mean/var instead of mini-batch mean/var)
+model.eval()
+with torch.no_grad():
+    correct = 0
+    total = 0
+    for images, labels in test_loader:
+        images = images.to(device)
+        labels = labels.to(device)
+        outputs = model(images)
+        _, predicted = torch.max(outputs.data, 1)
+        total += labels.size(0)
+        correct += (predicted == labels).sum().item()
+
+    print(&#39;Test Accuracy of the model on the 10000 test images: {} %&#39;
+          .format(100.0 * correct / total))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Test Accuracy of the model on the 10000 test images: 98.28 %
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Training-a-CNN-on-CIFAR10">
+<h1><span class="section-number">8. </span>Training a CNN on CIFAR10<a class="headerlink" href="#Training-a-CNN-on-CIFAR10" title="Permalink to this headline">¶</a></h1>
+<p>Source: <a class="reference external" href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html">https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>batch_size = 32
+
+transform = transforms.Compose(
+    [transforms.ToTensor(),
+     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+
+trainset = torchvision.datasets.CIFAR10(root=&#39;data&#39;, train=True,
+                                        download=True, transform=transform)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
+                                          shuffle=True, num_workers=2)
+
+testset = torchvision.datasets.CIFAR10(root=&#39;data&#39;, train=False,
+                                       download=True, transform=transform)
+testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
+                                         shuffle=False, num_workers=2)
+
+classes = (&#39;plane&#39;, &#39;car&#39;, &#39;bird&#39;, &#39;cat&#39;,
+           &#39;deer&#39;, &#39;dog&#39;, &#39;frog&#39;, &#39;horse&#39;, &#39;ship&#39;, &#39;truck&#39;)
+
+# functions to show an image
+def imshow(img):
+    img = img / 2 + 0.5     # unnormalize
+    npimg = img.numpy()
+    plt.imshow(np.transpose(npimg, (1, 2, 0)))
+    plt.show()
+
+
+# get some random training images
+dataiter = iter(trainloader)
+images, labels = dataiter.next()
+
+# print labels for the first 8 images
+print(&#39; &#39;.join(&#39;%5s&#39; % classes[labels[j]] for j in range(8)))
+
+# show images
+plt.figure(figsize=(10,5))
+imshow(torchvision.utils.make_grid(images))
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Files already downloaded and verified
+Files already downloaded and verified
+horse   dog plane  bird  ship  bird   dog plane
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab05_13_1.png" src="../images/tutorials_lab05_13_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>import torch.nn.functional as F
+
+
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.conv1 = nn.Conv2d(3, 6, 5)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.fc1 = nn.Linear(16 * 5 * 5, 120)
+        self.fc2 = nn.Linear(120, 84)
+        self.fc3 = nn.Linear(84, 10)
+
+    def forward(self, x):
+        x = self.pool(F.relu(self.conv1(x)))
+        x = self.pool(F.relu(self.conv2(x)))
+        x = x.view(-1, 16 * 5 * 5)
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
+
+
+net = Net()
+
+# loss and optimizer
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>for epoch in range(2):  # loop over the dataset multiple times
+
+    running_loss = 0.0
+    for i, data in enumerate(trainloader, 0):
+        # get the inputs; data is a list of [inputs, labels]
+        inputs, labels = data
+
+        # zero the parameter gradients
+        optimizer.zero_grad()
+
+        # forward + backward + optimize
+        outputs = net(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+
+        # print statistics
+        if i % 100 == 99:    # print every 100 mini-batches
+            print(&#39;[%d, %5d] loss: %.3f&#39; %
+                  (epoch + 1, i + 1, loss.item()))
+            running_loss = 0.0
+
+print(&#39;Finished Training&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1,   100] loss: 2.314
+[1,   200] loss: 2.293
+[1,   300] loss: 2.304
+[1,   400] loss: 2.307
+[1,   500] loss: 2.299
+[1,   600] loss: 2.299
+[1,   700] loss: 2.300
+[1,   800] loss: 2.289
+[1,   900] loss: 2.292
+[1,  1000] loss: 2.295
+[1,  1100] loss: 2.278
+[1,  1200] loss: 2.280
+[1,  1300] loss: 2.172
+[1,  1400] loss: 2.237
+[1,  1500] loss: 2.042
+[2,   100] loss: 2.152
+[2,   200] loss: 2.052
+[2,   300] loss: 2.142
+[2,   400] loss: 1.721
+[2,   500] loss: 2.056
+[2,   600] loss: 2.097
+[2,   700] loss: 1.707
+[2,   800] loss: 1.704
+[2,   900] loss: 1.933
+[2,  1000] loss: 1.684
+[2,  1100] loss: 2.034
+[2,  1200] loss: 1.776
+[2,  1300] loss: 1.629
+[2,  1400] loss: 1.687
+[2,  1500] loss: 1.586
+Finished Training
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>dataiter = iter(testloader)
+images, labels = dataiter.next()
+
+# print images
+plt.figure(figsize=(10,5))
+imshow(torchvision.utils.make_grid(images))
+print(&#39;GroundTruth: &#39;, &#39; &#39;.join(&#39;%5s&#39; % classes[labels[j]] for j in range(8)))
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab05_16_0.png" src="../images/tutorials_lab05_16_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+GroundTruth:    cat  ship  ship plane  frog  frog   car  frog
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>correct = 0
+total = 0
+with torch.no_grad():
+    for data in testloader:
+        images, labels = data
+        outputs = net(images)
+        _, predicted = torch.max(outputs.data, 1)
+        total += labels.size(0)
+        correct += (predicted == labels).sum().item()
+
+print(&#39;Accuracy of the network on the 10000 test images: %d %%&#39; % (
+    100 * correct / total))
+
+# per-class accuracies
+class_correct = list(0. for i in range(10))
+class_total = list(0. for i in range(10))
+with torch.no_grad():
+    for data in testloader:
+        images, labels = data
+        outputs = net(images)
+        _, predicted = torch.max(outputs, 1)
+        c = (predicted == labels).squeeze()
+        for i in range(4):
+            label = labels[i]
+            class_correct[label] += c[i].item()
+            class_total[label] += 1
+
+for i in range(10):
+    print(&#39;Accuracy of %5s : %2d %%&#39; % (
+        classes[i], 100 * class_correct[i] / class_total[i]))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Accuracy of the network on the 10000 test images: 38 %
+Accuracy of plane : 56 %
+Accuracy of   car : 52 %
+Accuracy of  bird : 23 %
+Accuracy of   cat : 28 %
+Accuracy of  deer : 16 %
+Accuracy of   dog : 35 %
+Accuracy of  frog : 57 %
+Accuracy of horse : 35 %
+Accuracy of  ship : 37 %
+Accuracy of truck : 41 %
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Pretrained-ImageNet-models">
+<h1><span class="section-number">9. </span>Pretrained ImageNet models<a class="headerlink" href="#Pretrained-ImageNet-models" title="Permalink to this headline">¶</a></h1>
+<p>We use torchvision here to download and use a pretrained ImageNet model.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>import io
+import json
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+import requests
+import torch
+from PIL import Image
+from torchvision import transforms, models
+from decimal import Decimal
+
+# Download and cache pretrained model from PyTorch model zoo
+model = models.resnet18(pretrained=True)
+# Set the model in evaluation mode (e.g., disable dropout)
+model.eval()
+
+transform = transforms.Compose([
+    transforms.Resize(256),
+    transforms.CenterCrop(224),
+    transforms.ToTensor()
+])
+
+normalize = transforms.Normalize(
+    mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+
+# we need this later for bringing the image back to input space
+inv_normalize = transforms.Normalize(
+    mean=[-0.485 / 0.229, -0.456 / 0.224, -0.406 / 0.225],
+    std=[1 / 0.229, 1 / 0.224, 1 / 0.225])
+
+# download a sample image from the web
+img_path = &quot;https://github.com/ajschumacher/imagen/blob/master/&quot; \
+           &quot;imagen/n01882714_4157_koala_bear.jpg?raw=true&quot;
+r1 = requests.get(img_path)
+img = Image.open(io.BytesIO(r1.content))
+
+# apply transform from torchvision
+input_tensor = normalize(transform(img))
+
+# functions to show an image
+def imshow(img):
+    img = inv_normalize(img)
+    npimg = img.numpy()
+    plt.imshow(np.transpose(npimg, (1, 2, 0)))
+    plt.axis(&#39;off&#39;)
+    plt.show()
+
+imshow(input_tensor)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab05_19_0.png" src="../images/tutorials_lab05_19_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span># create a mini-batch as expected by the model
+input_batch = input_tensor.unsqueeze(0)
+
+# move the input and model to GPU for speed if available
+if torch.cuda.is_available():
+    input_batch = input_batch.to(&#39;cuda&#39;)
+    model.to(&#39;cuda&#39;)
+
+with torch.no_grad():
+    output = model(input_batch)
+
+# Tensor of shape 1000, with confidence scores over Imagenet&#39;s 1000 classes
+print(&quot;Output shape&quot;, output.shape)
+
+# softmax will rescale outputs so that the sum is 1 and we
+# can use them as probability scores
+scores = torch.softmax(output, dim=1)
+
+# take top k predictions - accuracy is usually measured with top-5
+_, preds = output.topk(k=5, dim=1)
+
+# Get the list of labels
+imagenet_labels_path = &quot;https://raw.githubusercontent.com/&quot; \
+                       &quot;anishathalye/imagenet-simple-labels/&quot; \
+                       &quot;master/imagenet-simple-labels.json&quot;
+r2 = requests.get(imagenet_labels_path)
+labels = json.load(io.StringIO(r2.text))
+
+# use the output as index for the labels list
+for label in preds[0]:
+    predicted_label = labels[label.item()]
+    score = scores[0, label.item()].item()
+    print(&quot;Label: {:25s} Score: {:.2f}&quot;.format(predicted_label, Decimal(score)))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Output shape torch.Size([1, 1000])
+Label: koala                     Score: 0.97
+Label: ring-tailed lemur         Score: 0.02
+Label: indri                     Score: 0.01
+Label: snow leopard              Score: 0.00
+Label: titi                      Score: 0.00
+</pre></div></div>
+</div>
+<p>Now we run an adversarial attack!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span># ================================================================== #
+#                        Adversarial Example                         #
+# ================================================================== #
+
+def predict(model, x, labels):
+    with torch.no_grad():
+        output = model(x)  # 1000 values (predictions on 1,000 classes)
+
+    # softmax will rescale outputs so that the sum is 1 and we
+    # can use them as probability scores
+    scores = torch.softmax(output, dim=1)
+
+    # take top k predictions - accuracy is usually measured with top-5
+    _, preds = output.topk(k=5, dim=1)
+
+    # use the output as index for the labels list
+    for label in preds[0]:
+        predicted_label = labels[label.item()]
+        score = scores[0, label.item()].item()
+        print(&quot;ID: {:3d} Label: {:25s} Score: {:.2f}&quot;
+              &quot;&quot;.format(label.item(), predicted_label, Decimal(score)))
+
+
+predict(model, input_batch, labels)
+imshow(input_batch[0])
+
+
+def normalize_l2(x):
+    return x / x.view(x.shape[0], -1).norm(p=2, dim=1)
+
+
+def perturb_iterative(x, y, model, nb_iter, eps_iter, loss_fn,
+                      transform, inverse_transform,
+                      clip_min=0.0, clip_max=1.0):
+    &quot;&quot;&quot;
+    Iteratively maximize the loss over the input.
+
+    :param x: input data.
+    :param y: target label.
+    :param model: model to run forward pass function.
+    :param nb_iter: number of iterations.
+    :param eps_iter: attack step size.
+    :param loss_fn: loss function.
+    :param transform: transformation to apply to the samples.
+    :param inverse_transform: inverse process for bringing the samples
+        back to input space.
+    :param clip_min: mininum value per input dimension.
+    :param clip_max: maximum value per input dimension.
+    :return: tensor containing the perturbed input.
+    &quot;&quot;&quot;
+    delta = torch.zeros_like(x)
+    delta.requires_grad_()
+    for ii in range(nb_iter):
+        outputs = model(x + delta)
+        loss = loss_fn(outputs, y)
+        loss.backward()
+
+        grad = normalize_l2(delta.grad.data)
+        delta.data = delta.data - eps_iter * grad
+
+        # clip for ensuring the sample is in the input space
+        perturbed = x.data + delta.data
+        perturbed = inverse_transform(perturbed.squeeze())
+        perturbed_clip = transform(torch.clamp(perturbed, clip_min, clip_max))
+        delta.data =  perturbed_clip - x.data
+        delta.grad.data.zero_()
+
+    x_adv = x + delta
+
+    # we need to detach the gradient
+    return x_adv.detach()
+
+
+loss = torch.nn.CrossEntropyLoss()
+target_label = torch.LongTensor([402])
+x_adv = perturb_iterative(x=input_batch, y=target_label, model=model,
+                          nb_iter=20, eps_iter=0.5, loss_fn=loss,
+                          transform=normalize,
+                          inverse_transform=inv_normalize,
+                          clip_min=0.0,
+                          clip_max=1.0)
+
+predict(model, x_adv, labels)
+imshow(x_adv[0])
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ID: 105 Label: koala                     Score: 0.97
+ID: 383 Label: ring-tailed lemur         Score: 0.02
+ID: 384 Label: indri                     Score: 0.01
+ID: 289 Label: snow leopard              Score: 0.00
+ID: 380 Label: titi                      Score: 0.00
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab05_22_1.png" src="../images/tutorials_lab05_22_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ID: 402 Label: acoustic guitar           Score: 0.86
+ID: 546 Label: electric guitar           Score: 0.04
+ID: 420 Label: banjo                     Score: 0.01
+ID: 889 Label: violin                    Score: 0.01
+ID: 105 Label: koala                     Score: 0.01
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../images/tutorials_lab05_22_3.png" src="../images/tutorials_lab05_22_3.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="lab04.html" class="btn btn-neutral float-left" title="4. Machine Learning - Lab04" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
