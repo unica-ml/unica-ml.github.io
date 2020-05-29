@@ -444,7 +444,7 @@ div.rendered_html tbody tr:hover {
 <h2><span class="section-number">6.1. </span>Classifying Images with Pretrained ImageNet Models<a class="headerlink" href="#Classifying-Images-with-Pretrained-ImageNet-Models" title="Permalink to this headline">¶</a></h2>
 <p>We use torchvision here to download and use a pretrained ImageNet model.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -508,7 +508,7 @@ imshow(input_tensor)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -580,7 +580,7 @@ apply box and <span class="math notranslate nohighlight">\(\ell_2\)</span> const
 <p><em>After that, our koala will be misclassified as an acoustic guitar!</em></p>
 <p><strong>References</strong> 1. C. Szegedy et al., Intriguing Properties of Neural Networks, ICLR 2014, <a class="reference external" href="https://arxiv.org/abs/1312.6199">https://arxiv.org/abs/1312.6199</a> 2. B. Biggio et al., Evasion Attacks against Machine Learning at Test Time, ECML PKDD 2013, <a class="reference external" href="https://arxiv.org/abs/1708.06131">https://arxiv.org/abs/1708.06131</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-none notranslate"><div class="highlight"><pre>
@@ -622,7 +622,7 @@ def perturb_iterative(x, y, model, nb_iter, eps, eta, loss_fn,
     &quot;&quot;&quot;
     Iteratively maximize the loss over the input.
 
-    :param x: input data.
+    :param x: input data (in feature space).
     :param y: target label.
     :param model: model to run forward pass function.
     :param nb_iter: number of iterations.
@@ -646,6 +646,8 @@ def perturb_iterative(x, y, model, nb_iter, eps, eta, loss_fn,
     # track gradients on delta
     x_adv.requires_grad = True
 
+    x_input_space = batch_transform(x, inverse_transform)  #x0
+
     for ii in range(nb_iter):
         outputs = model(x_adv)
         loss = loss_fn(outputs, y)
@@ -654,18 +656,21 @@ def perturb_iterative(x, y, model, nb_iter, eps, eta, loss_fn,
         grad = x_adv.grad.data
         x_adv.data = x_adv.data - eta * grad
 
-        # now we have to enforce the constraints on the input space
+        # ------------------------- PROJECTIONS --------------------------
+        # now we have to enforce constraints in the input space
         x_adv_input_space = batch_transform(x_adv, inverse_transform)
-        x_input_space = batch_transform(x, inverse_transform)
+        # box projection in input space
         x_adv_input_space = torch.clamp(x_adv_input_space, clip_min, clip_max)
-
+        # l2 projection in input space
         if l2(x_adv_input_space - x_input_space) &gt; eps:
             delta = x_adv_input_space.data - x_input_space.data
             delta = delta / l2(delta)
             x_adv_input_space.data = x_input_space.data + delta.data
-
+        # project x_adv back onto feature/normalized space
         x_adv.data = batch_transform(x_adv_input_space, transform)
+        # ----------------------------------------------------------------
 
+        # reset gradient
         x_adv.grad.data.zero_()
 
     # we need to detach the gradient
@@ -710,7 +715,7 @@ ID: 380 Label: titi                      Score: 0.00
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-ID: 402 Label: acoustic guitar           Score: 0.92
+ID: 402 Label: acoustic guitar           Score: 0.93
 ID: 546 Label: electric guitar           Score: 0.02
 ID: 420 Label: banjo                     Score: 0.01
 ID: 889 Label: violin                    Score: 0.00
