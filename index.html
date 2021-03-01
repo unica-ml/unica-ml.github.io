@@ -1,23 +1,31 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Machine Learning &mdash; Machine Learning  documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="static/documentation_options.js"></script>
@@ -32,10 +40,6 @@
     <script type="text/javascript" src="static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="1. Machine Learning - Lab01" href="tutorials/lab01.html" /> 
@@ -72,6 +76,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -125,6 +130,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -159,18 +165,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
       <li>Machine Learning</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
         
       </li>
     
@@ -208,7 +216,7 @@
 </style>
 <div class="section" id="machine-learning">
 <h1>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h1>
-<p><strong>Academic Year 2019-2020</strong></p>
+<p><strong>Academic Year 2020-2021</strong></p>
 <p><strong>Instructors:</strong> Prof. Fabio Roli, Dr. Battista Biggio</p>
 <p><strong>MSc in Computer Engineering, Cybersecurity and Artificial Intelligence</strong></p>
 <p><strong>MSc in Electronic Engineering</strong></p>
@@ -232,18 +240,15 @@ An ability to design simple algorithms for pattern classification,
 code them with Python programming language and test them with benchmark data sets.</p>
 <p><strong>Class schedule</strong></p>
 <ul class="simple">
-<li><p>Tuesday, h. 13:50-15:30,  virtual classroom</p></li>
-<li><p>Wednesday, h. 13:50-15:30, virtual classroom</p></li>
-<li><p>Friday, h. 13:50-15:30, virtual classroom</p></li>
+<li><p>Tuesday, h. 15:30-17:55, virtual classroom and room IIB (ex BA)</p></li>
+<li><p>Thursday, h. 17:10-19:25, virtual classroom</p></li>
 </ul>
 <p><strong>Course Outline (6 CFU)</strong></p>
 <ol class="arabic simple">
 <li><p>Introduction (2 hours)</p></li>
-<li><p>Bayesian decision theory (6 hours)</p></li>
-<li><p>Introduction to pattern classification methods (2 hours)</p></li>
-<li><p>Parametric methods (4 hours)</p></li>
-<li><p>Non parametric methods and decision trees (4 hours)</p></li>
-<li><p>Linear discriminant functions and support vector machines (4 hours)</p></li>
+<li><p>Bayesian Decision Theory and Gaussian Pattern Classifiers (10 hours)</p></li>
+<li><p>Non parametric methods and k-nn classifier (4 hours)</p></li>
+<li><p>Linear discriminant functions and support vector machines (6 hours)</p></li>
 <li><p>Artificial neural networks (4 hours)</p></li>
 <li><p>Performance evaluation (2 hours)</p></li>
 <li><p>Clustering Methods (2 hours)</p></li>
@@ -267,25 +272,9 @@ home computer-exercise assignment</p></li>
 R. O. Duda, P. E. Hart, e D. G. Stork, John Wiley &amp; Sons, 2000</p></li>
 </ul>
 <p><strong>Slides (and Exercises)</strong></p>
-<p>Part 1 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-01.pdf">Introduction to the course</a></p>
-<p>Part 2 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-02.pdf">Elements of Bayesian Decision Theory</a>
-(<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-02-base-rate-fallacy.pdf">Base Rate Fallacy</a>)
-(<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/exercises/ml-part-02-exercises.pdf">Exercises 2</a>) (<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/exercises/ml-part-02-exercises-annotated.pdf">Exercises with notes</a>)</p>
-<p>Part 3 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-03.pdf">Introduction to Statistical Classification Techniques</a></p>
-<p>Part 4 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-04.pdf">Elements of Parametric Techniques</a> (<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/exercises/ml-part-04-exercises.pdf">Exercises 4</a>)</p>
-<p>Part 5 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-05.pdf">Elements of NonParametric Techniques (kNN)</a> (<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/exercises/ml-part-05-exercises.pdf">Exercises 5</a>)</p>
-<p>Part 6 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-06.pdf">Elements of Linear Discriminant Functions (with Exercises)</a></p>
-<p>Part 7 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-07.pdf">Neural Networks</a></p>
-<p>Part 8 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-08.pdf">Elements of Performance Evaluation</a></p>
-<p>Part 9 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-09.pdf">Elements of Data Clustering</a> (<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-09-annotated.pdf">Slides with notes</a>) (<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/exercises/ml-part-09-exercises.pdf">Exercises</a>)</p>
+<p>Part 1 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-01.pdf">Introduction</a></p>
+<p>Part 2 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lectures/ml-part-02.pdf">Bayesian Decision Theory and Gaussian Pattern Classifiers</a></p>
 <p><strong>Laboratory</strong></p>
-<p>Part 1 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lab/ml-lab-01.pdf">Python basics</a>
-(<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/notebooks/lab01.ipynb">Notebook 1</a>)</p>
-<p>Part 2 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lab/ml-lab-02.pdf">Data Sampling, Visualization, Learning and Classification</a> (<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/notebooks/lab02.ipynb">Notebook 2</a>)</p>
-<p>Part 3 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lab/ml-lab-03.pdf">Gaussian Classifier</a> (<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/notebooks/lab03.ipynb">Notebook 3</a>)</p>
-<p>Part 4 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lab/ml-lab-04.pdf">Performance Evaluation and Hyperparameter Estimation</a> (<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/notebooks/lab04.ipynb">Notebook 4</a>)</p>
-<p>Part 5 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lab/ml-lab-05.pdf">Neural Networks with PyTorch</a> (<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/notebooks/lab05.ipynb">Notebook 5</a>)</p>
-<p>Part 6 - <a class="reference external" href="https://github.com/unica-ml/ml/blob/master/slides/lab/ml-lab-06.pdf">Adversarial Examples on ImageNet Classifiers</a> (<a class="reference external" href="https://github.com/unica-ml/ml/blob/master/notebooks/lab06.ipynb">Notebook 6</a>)</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -295,14 +284,9 @@ R. O. Duda, P. E. Hart, e D. G. Stork, John Wiley &amp; Sons, 2000</p></li>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="tutorials/lab01.html" class="btn btn-neutral float-right" title="1. Machine Learning - Lab01" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
+        <a href="tutorials/lab01.html" class="btn btn-neutral float-right" title="1. Machine Learning - Lab01" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
@@ -311,10 +295,16 @@ R. O. Duda, P. E. Hart, e D. G. Stork, John Wiley &amp; Sons, 2000</p></li>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -322,7 +312,6 @@ R. O. Duda, P. E. Hart, e D. G. Stork, John Wiley &amp; Sons, 2000</p></li>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
